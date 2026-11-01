@@ -185,7 +185,9 @@ test('Escape skips immediately and returning from a case study never replays', a
   await expect(
     page.getByRole('dialog', { name: 'Signature introduction' }),
   ).not.toBeVisible()
-  await page.getByRole('link', { name: '02 VisionControl' }).click()
+  // Keyboard focus pauses the continuously moving orbit before activation.
+  await page.getByRole('link', { name: '02 VisionControl' }).focus()
+  await page.keyboard.press('Enter')
   await page.getByRole('link', { name: 'Back to All Projects' }).click()
   await expect(
     page.getByRole('dialog', { name: 'Signature introduction' }),
@@ -221,7 +223,9 @@ test('blocked session storage does not trap the page or replay within the docume
   await page.goto('/?intro=preview')
   await expect(page.getByRole('button', { name: 'Skip Intro' })).toBeVisible()
   await page.getByRole('button', { name: 'Skip Intro' }).click()
-  await page.getByRole('link', { name: '02 VisionControl' }).click()
+  // Keyboard focus pauses the continuously moving orbit before activation.
+  await page.getByRole('link', { name: '02 VisionControl' }).focus()
+  await page.keyboard.press('Enter')
   await page.getByRole('link', { name: 'Back to All Projects' }).click()
   await expect(
     page.getByRole('dialog', { name: 'Signature introduction' }),
@@ -287,7 +291,9 @@ test('Back/Forward during a replay cannot start a second intro on return', async
 }) => {
   await page.goto('/?intro=preview')
   await page.getByRole('button', { name: 'Skip Intro' }).click()
-  await page.getByRole('link', { name: '02 VisionControl' }).click()
+  // Keyboard focus pauses the continuously moving orbit before activation.
+  await page.getByRole('link', { name: '02 VisionControl' }).focus()
+  await page.keyboard.press('Enter')
   await page.goBack()
   await page.getByRole('button', { name: 'Replay intro' }).click()
   await expect(

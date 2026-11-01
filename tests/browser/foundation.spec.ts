@@ -13,7 +13,9 @@ test('hydrates, navigates to drafts, returns to anchors, and handles missing rou
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'Darsh Patel.',
   )
-  await page.getByRole('link', { name: '02 VisionControl' }).click()
+  // Keyboard focus pauses the continuously moving orbit before activation.
+  await page.getByRole('link', { name: '02 VisionControl' }).focus()
+  await page.keyboard.press('Enter')
   await expect(page).toHaveURL(/\/projects\/visioncontrol$/)
   await expect(page).toHaveTitle('VisionControl — Darsh Patel')
   await expect(page.getByRole('heading', { level: 1 })).toBeFocused()

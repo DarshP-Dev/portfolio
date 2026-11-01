@@ -3,6 +3,7 @@
 The approved portfolio foundation: React, strict TypeScript, Vite, Tailwind,
 React Router, and locally served Geist / Inter / JetBrains Mono variable fonts.
 Phase 2 adds accessible navigation and a review-only signature intro prototype.
+Phase 3 adds responsive homepage interactions and native desktop section stacking.
 This is a review build, not a completed public portfolio.
 
 ## Development
@@ -45,7 +46,7 @@ Use `BUILD_MODE` to select another mode for both builds together.
 
 All review HTML carries `noindex, nofollow`; `robots.txt` disallows crawling.
 Public indexing, sitemap and final social images belong to Phase 6. The contact
-form, homepage orbit/stacking, and full case studies remain later phases.
+form and full case studies remain later phases.
 Unknown resume/social/email URLs are shown as pending, not links.
 `published` records fail validation if required content/media is missing or TODOs
 remain. This check does not replace owner review of factual accuracy.
@@ -70,8 +71,7 @@ resume/social/email actions are omitted rather than invented.
 Open `http://127.0.0.1:5173/?intro=preview` during development to review the intro.
 Use **Replay intro** to watch again. It follows a custom cursive DP trace, connected
 spiral, ink ball, Geist name morph, and measured handoff into the actual hero.
-The current static project index reveals at the end; screenshot orbit/carousel
-work belongs to Phase 3. Skip Intro/Escape, reduced motion, session storage
+The project orbit/mobile row reveals at the end. Skip Intro/Escape, reduced motion, session storage
 failure, changed motion preference, resize and a stalled-dependency deadline all
 return to usable content. No animation or overlay is included in prerendered HTML.
 
@@ -85,6 +85,39 @@ prototype. A preferred handwritten DP can replace the custom path after review.
 `npm run generate:intro` regenerates the name SVG data from the matching Geist
 500 font, with the hero's tracking and line-height. The parser and static font
 are build-only dependencies; normal builds use the checked-in generated paths.
+
+## Phase 3 review
+
+`src/components/home` contains the homepage interactions and scoped styles:
+
+- Five upright project previews orbit once every 36 seconds on wide screens.
+  Pause/Resume, hover, keyboard focus, open dialogs, covered/offscreen state and
+  hidden tabs stop the loop. Phones/tablets get a native scroll-snap row with
+  Previous/Next controls and no autoplay.
+- The React Bits gallery adaptation expands on desktop hover/focus, with direct
+  first-click links. Touch, narrow and reduced-motion layouts use static cards.
+  More Projects stays immediately below the gallery.
+- The light ProfileCard has a one-time viewport foil sweep and six-degree mouse
+  tilt. Touch/reduced motion is static. The DP placeholder explicitly awaits the
+  owner's portrait and makes no availability claim.
+- The skills map highlights category connections; the complete semantic grid
+  follows it. `SkillTechnology` supports approved local logo assets and readable
+  names. Empty categories remain pending; draft technologies are not proficiency
+  claims. The constellation is replaced by the grid on narrow/reduced layouts.
+- `JourneyTimeline` accepts verified dates, optional years, detail paragraphs and
+  real preview images. Native named disclosures allow one entry open at a time,
+  including without JavaScript. ResizeObserver keeps the progress line attached
+  after disclosures resize. With no verified entries, only a pending milestone
+  and the approved “What’s Next?” closing appear.
+- Desktop section wrappers use natural heights and CSS sticky positioning. Tall
+  sections scroll fully before their trailing edge sticks; the next section
+  overlays as the previous recedes to 0.98 scale. Focus releases stacking so links
+  and disclosures stay reachable. Tablet, touch, reduced motion and case studies
+  use normal flow. No wheel/touch interception or synthetic scrolling is used.
+
+The approved intro choreography is unchanged. Real screenshots, the portrait,
+skills/logos and resume dates are still required for final visual/content review.
+No email credentials are needed until Phase 5, and nothing has been deployed.
 
 ## Checks
 
@@ -107,6 +140,11 @@ Phase 2 tests add menu/no-JS behavior, command filtering and modal focus,
 editable/modal shortcut guards, text zoom, ordered intro stages, mobile handoff,
 session/skip/reduced-motion logic and animation failure recovery. Screenshots and
 an intro recording are written to ignored `.cache/phase2` during browser checks.
+Phase 3 adds orbit pause/upright/collision checks, first-activation gallery routes,
+mobile row controls, profile/skills fallbacks, timeline resize/progress, long
+section reachability, 200% text reflow and no-JS homepage checks. Review screenshots
+are written to `.cache/phase3`. Browser tests exercise the built output; rebuild
+after source changes before running them.
 
 ## Vercel (prepared, not deployed)
 
@@ -116,7 +154,7 @@ HTML. `404.html` supplies the error page; no catch-all homepage rewrite masks
 missing paths. Verify actual preview-host behavior before production in Phase 6.
 The server render bundle in `dist-ssr` is a build tool and is not deployed.
 
-Font licenses ship in `public/font-licenses`. The React Bits navigation adapter's
+Font licenses ship in `public/font-licenses`. The React Bits adapters'
 upstream license is in `public/third-party`; see `THIRD_PARTY_NOTICES.md`.
 
 Current npm audit reports 12 moderate findings in the existing lint-tool chain,

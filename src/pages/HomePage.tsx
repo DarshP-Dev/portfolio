@@ -4,14 +4,19 @@ import { site } from '../content/site'
 import { skillCategories } from '../content/skills'
 import { timeline } from '../content/timeline'
 import { Section } from '../components/layout/Section'
-import { EmptyAssetPlaceholder } from '../components/common/EmptyAssetPlaceholder'
-import { ProjectCard } from '../components/projects/ProjectCard'
+import { HeroProjects } from '../components/home/HeroProjects'
+import { AccordionGallery } from '../components/home/AccordionGallery'
+import { ProfileCard } from '../components/home/ProfileCard'
+import { SkillsConstellation } from '../components/home/SkillsConstellation'
+import { JourneyTimeline } from '../components/home/JourneyTimeline'
+import { SectionStack } from '../components/home/SectionStack'
+import '../components/home/home.css'
 
 export function HomePage() {
   const visible = visibleProjects(projects, site.includeDrafts)
   const featured = visible.filter((project) => project.featured)
   return (
-    <>
+    <SectionStack>
       <section
         id="home"
         className="hero-section page-width"
@@ -36,29 +41,9 @@ export function HomePage() {
             </span>
           </div>
         </div>
-        <div className="hero-work" aria-label="Featured project index">
-          <div className="section-topline">
-            <p className="eyebrow">Selected work</p>
-            <span className="mono quiet">01—05</span>
-          </div>
-          <ol className="hero-project-list">
-            {featured.map((project) => (
-              <li key={project.id}>
-                <Link to={`/projects/${project.slug}`}>
-                  <span className="mono quiet">
-                    {String(project.order).padStart(2, '0')}
-                  </span>
-                  <span>{project.title}</span>
-                  <span aria-hidden="true">↗</span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-          {!featured.length && (
-            <p className="content-note">Reviewed projects will appear here.</p>
-          )}
-          <p className="asset-note">Project imagery pending.</p>
-        </div>
+        <HeroProjects
+          projects={featured.filter((project) => project.heroOrbit)}
+        />
         <div className="hero-bottom">
           <span className="mono">Ideas. Systems. Thoughtful details.</span>
           <a href="#projects" className="text-link">
@@ -77,11 +62,7 @@ export function HomePage() {
           studies and original media are being prepared.
         </p>
         {featured.length ? (
-          <div className="project-grid grid gap-x-7 gap-y-10 md:grid-cols-2">
-            {featured.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
+          <AccordionGallery projects={featured} />
         ) : (
           <p className="content-note">
             Projects will appear here after their content is reviewed.
@@ -128,16 +109,7 @@ export function HomePage() {
               Contact Me <span aria-hidden="true">↗</span>
             </Link>
           </div>
-          <div className="portrait-shell">
-            <EmptyAssetPlaceholder
-              label="Owner portrait pending"
-              variant="portrait"
-            />
-            <div className="portrait-caption">
-              <strong>Darsh Patel</strong>
-              <span>Software Engineering Student</span>
-            </div>
-          </div>
+          <ProfileCard />
         </div>
       </Section>
       <Section
@@ -150,23 +122,7 @@ export function HomePage() {
           A categorized foundation for the skills list. Technologies will be
           added once confirmed against actual project work.
         </p>
-        <div className="skills-grid grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
-          {skillCategories.map((category, index) => (
-            <div className="skill-category" key={category.name}>
-              <span className="mono quiet">0{index + 1}</span>
-              <h3>{category.name}</h3>
-              {category.technologies.length ? (
-                <ul>
-                  {category.technologies.map((tech) => (
-                    <li key={tech}>{tech}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p>Verified skills pending</p>
-              )}
-            </div>
-          ))}
-        </div>
+        <SkillsConstellation categories={skillCategories} />
       </Section>
       <Section
         id="experience"
@@ -177,39 +133,7 @@ export function HomePage() {
         <p className="section-intro">
           Learning, building, and the experiences along the way.
         </p>
-        <div className="journey-list">
-          {timeline.map((entry) => (
-            <article className="journey-entry" key={entry.id}>
-              <p className="eyebrow">
-                {entry.kind} · {entry.startDate}
-              </p>
-              <h3>{entry.title}</h3>
-              <p>{entry.organization}</p>
-              <p>{entry.summary}</p>
-            </article>
-          ))}
-          {!timeline.length && (
-            <div className="journey-entry">
-              <p className="eyebrow">Timeline in preparation</p>
-              <h3>Verified milestones, coming next.</h3>
-              <p>
-                Education details, experience, and dates will be added from the
-                current resume. No unverified roles are listed.
-              </p>
-            </div>
-          )}
-          <div className="journey-entry journey-next">
-            <p className="eyebrow">Looking ahead</p>
-            <h3>What’s Next?</h3>
-            <p>
-              Continuing to build thoughtful software and explore opportunities
-              in software engineering, internships, co-op, and collaboration.
-            </p>
-            <Link to="/#contact" className="text-link">
-              Contact Me <span aria-hidden="true">↗</span>
-            </Link>
-          </div>
-        </div>
+        <JourneyTimeline entries={timeline} />
       </Section>
       <Section
         id="contact"
@@ -240,6 +164,6 @@ export function HomePage() {
           </p>
         </div>
       </Section>
-    </>
+    </SectionStack>
   )
 }
