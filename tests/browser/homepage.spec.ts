@@ -75,6 +75,11 @@ test('desktop gallery expands on focus and pointer, and first activation opens t
   await expect(page).toHaveURL(/\/projects\/personal-finance-tracker$/)
   await page.goBack()
   // No expand-only click handler: this inactive link still opens on its first click.
+  // Return restoration keeps focus on the source link; release it before testing pointer hover.
+  await page
+    .locator('.featured-gallery a')
+    .first()
+    .evaluate((link) => (link as HTMLElement).blur())
   const last = page.locator('.featured-gallery > li').last()
   await last.hover()
   await expect(last).toHaveAttribute('data-active', 'true')

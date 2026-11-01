@@ -4,6 +4,7 @@ The approved portfolio foundation: React, strict TypeScript, Vite, Tailwind,
 React Router, and locally served Geist / Inter / JetBrains Mono variable fonts.
 Phase 2 adds accessible navigation and a review-only signature intro prototype.
 Phase 3 adds responsive homepage interactions and native desktop section stacking.
+Phase 4 adds the shared editorial case-study system and source-backed project drafts.
 This is a review build, not a completed public portfolio.
 
 ## Development
@@ -46,7 +47,8 @@ Use `BUILD_MODE` to select another mode for both builds together.
 
 All review HTML carries `noindex, nofollow`; `robots.txt` disallows crawling.
 Public indexing, sitemap and final social images belong to Phase 6. The contact
-form and full case studies remain later phases.
+form remains a later phase. Case studies remain development drafts until final
+content, media and ownership review is complete.
 Unknown resume/social/email URLs are shown as pending, not links.
 `published` records fail validation if required content/media is missing or TODOs
 remain. This check does not replace owner review of factual accuracy.
@@ -119,6 +121,44 @@ The approved intro choreography is unchanged. Real screenshots, the portrait,
 skills/logos and resume dates are still required for final visual/content review.
 No email credentials are needed until Phase 5, and nothing has been deployed.
 
+## Phase 4 review
+
+All seven project routes use `CaseStudy`: introduction and real external links,
+media, snapshot/contributions, challenge, solution, architecture, engineering
+decisions, results/next steps and continue-exploring navigation. Technical deep
+dives use native disclosures. An optional architecture map highlights components
+while retaining every explanation in readable HTML.
+
+`src/content/project-stories.ts` contains repository-backed drafts, separate from
+the shared project types and publication filtering. `PROJECT_SOURCES.md` records
+the exact source revisions, media provenance, owner-confirmed team roles and
+unresolved review items. Argus/DeenStudio credit Munadir's work explicitly.
+Interval is excluded. DeenStudio's implemented export is WebM; MP4 is not claimed.
+Only genuine GitHub, supplied Devpost and verified relevant app/demo URLs appear.
+
+The media viewer has previous/next and direct selection, captions, native video
+controls, a modal with Escape/backdrop close and focus restoration, and a scrollable
+image zoom. Swipe supplements visible controls. Videos start muted without
+autoplay and pause when moving into/out of the modal. Failed media has a recovery
+state. SSR/no-JS retains the first asset, native video controls and links to the
+remaining originals. No sample product videos are shipped.
+
+Homepage project links capture position and source focus. Back to Projects and
+browser Back restore them, including after a case-study refresh; a width change
+returns to the source card. Session storage is optional with an in-memory fallback.
+Directly opened cases return to `/#projects`. Next Project preserves the origin
+and only cycles through currently visible records. Case pages use native scrolling.
+
+Response HTML contains each case's own title, description and article metadata.
+When `VITE_SITE_URL` is a verified origin, real image metadata also gets absolute
+Open Graph/Twitter URLs, dimensions and alt text. The default review build omits
+unconfigured image URLs and remains `noindex`; no canonical domain is invented.
+
+Original media stays available in the viewer. The Windows helper
+`./scripts/generate-project-previews.ps1` produces smaller JPEG homepage previews.
+Final screenshots for Finance Tracker and Bluff House, final wording/asset credit
+review, and independent application acceptance remain pending.
+
 ## Checks
 
 ```sh
@@ -145,6 +185,12 @@ mobile row controls, profile/skills fallbacks, timeline resize/progress, long
 section reachability, 200% text reflow and no-JS homepage checks. Review screenshots
 are written to `.cache/phase3`. Browser tests exercise the built output; rebuild
 after source changes before running them.
+Phase 4 tests cover media selection/zoom/focus, controlled video and failure paths,
+source/credit guards, return restoration, direct/no-JS cases, and responsive
+accessibility. A second loopback-only Vite server serves `tests/fixtures/media`
+on port 4177 (`FIXTURE_PORT` can override it). That fixture is excluded from the
+production entry and output. Its silent one-frame test video lives only in the isolated test fixture.
+Case-study screenshots are saved in ignored `.cache/phase4`.
 
 ## Vercel (prepared, not deployed)
 

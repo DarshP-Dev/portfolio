@@ -1,7 +1,7 @@
 // Adapted from the supplied React Bits AccordionGallery (David Haz).
 // License: public/third-party/react-bits-license.txt. Native links always navigate.
 import { useEffect, useRef } from 'react'
-import { Link } from 'react-router'
+import { ProjectLink } from '../projects/ProjectLinks'
 import { gsap } from 'gsap'
 import type { Project } from '../../content/projects'
 import { ProjectPreview } from './ProjectPreview'
@@ -60,7 +60,11 @@ export function AccordionGallery({ projects }: { projects: Project[] }) {
     <ul className="featured-gallery" ref={root} aria-label="Featured projects">
       {projects.map((project) => (
         <li key={project.id}>
-          <Link to={`/projects/${project.slug}`} className="gallery-link">
+          <ProjectLink
+            project={project}
+            source="gallery"
+            className="gallery-link"
+          >
             <div className="gallery-media">
               <ProjectPreview project={project} />
             </div>
@@ -80,7 +84,7 @@ export function AccordionGallery({ projects }: { projects: Project[] }) {
                 ↗
               </span>
             </div>
-          </Link>
+          </ProjectLink>
         </li>
       ))}
     </ul>

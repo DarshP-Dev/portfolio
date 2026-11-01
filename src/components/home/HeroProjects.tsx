@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
-import { Link } from 'react-router'
+import { ProjectLink } from '../projects/ProjectLinks'
 import { gsap } from 'gsap'
 import type { Project } from '../../content/projects'
 import { useHydrated } from '../../hooks/useHydrated'
@@ -180,8 +180,9 @@ export function HeroProjects({ projects }: { projects: Project[] }) {
               } as CSSProperties
             }
           >
-            <Link
-              to={`/projects/${project.slug}`}
+            <ProjectLink
+              project={project}
+              source="hero"
               aria-label={`${String(project.order).padStart(2, '0')} ${project.title}`}
             >
               <ProjectPreview project={project} />
@@ -189,7 +190,7 @@ export function HeroProjects({ projects }: { projects: Project[] }) {
                 {project.title}
                 <span aria-hidden="true">↗</span>
               </span>
-            </Link>
+            </ProjectLink>
           </li>
         ))}
       </ol>

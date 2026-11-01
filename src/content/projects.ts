@@ -1,3 +1,5 @@
+import { projectStories } from './project-stories'
+
 export type ProjectId =
   | 'personal-finance-tracker'
   | 'visioncontrol'
@@ -14,6 +16,10 @@ export interface ProjectMedia {
   width: number
   height: number
   poster?: string
+  caption?: string
+  thumbnailSrc?: string
+  hasAudio?: boolean
+  captions?: { src: string; language: string; label: string }
 }
 
 export interface Project {
@@ -26,14 +32,35 @@ export interface Project {
   status: 'draft' | 'reviewed' | 'published'
   technologies: string[]
   media: ProjectMedia[]
-  links: { label: string; url: string; kind: 'github' | 'live' | 'demo' }[]
+  links: {
+    label: string
+    url: string
+    kind: 'github' | 'live' | 'demo' | 'devpost'
+  }[]
   summary?: string
+  tagline?: string
+  projectType?: string
+  timeline?: string
   role?: string
   collaborators?: string[]
+  contribution?: { summary: string; work: string[]; credits: string }
   challenge?: string
   solution?: string
   architecture?: string
+  architectureNodes?: { id: string; label: string; description: string }[]
+  features?: { title: string; body: string; mediaIndex?: number }[]
+  engineeringChallenges?: {
+    title: string
+    problem: string
+    approach: string
+    tradeoff?: string
+    result?: string
+  }[]
+  deepDives?: { title: string; body: string }[]
   outcomes?: string[]
+  learnings?: string[]
+  nextSteps?: string[]
+  sources?: { label: string; url: string }[]
   pending: string[]
 }
 
@@ -60,7 +87,7 @@ function draft(
 
 // TODO: Verify claims against each project's source and owner-approved copy.
 // Empty arrays intentionally do not imply a verified stack, demo, or public repo.
-export const projects: Project[] = [
+const projectDrafts: Project[] = [
   draft('personal-finance-tracker', 'Personal Finance Tracker', 1, [
     'Confirm implemented features and architecture',
     'Supply redacted dashboard screenshots',
@@ -95,6 +122,12 @@ export const projects: Project[] = [
   ]),
 ]
 
+// Repository-backed observations remain drafts until owner review and missing media/roles are resolved.
+export const projects: Project[] = projectDrafts.map((project) => ({
+  ...project,
+  ...projectStories[project.id],
+}))
+
 export function visibleProjects(
   items: readonly Project[],
   includeDrafts: boolean,
@@ -118,7 +151,7 @@ export function validateProjects(items: readonly Project[]): string[] {
       issues.push(`Invalid slug: ${project.slug}`)
     if (slugs.has(project.slug)) issues.push(`Duplicate slug: ${project.slug}`)
     slugs.add(project.slug)
-    for (const link of project.links) {
+    for (const link of [...project.links, ...(project.sources ?? [])]) {
       try {
         if (new URL(link.url).protocol !== 'https:')
           issues.push(`Unsafe link: ${project.slug}`)
@@ -126,14 +159,55 @@ export function validateProjects(items: readonly Project[]): string[] {
         issues.push(`Invalid link: ${project.slug}`)
       }
     }
+    const safeAsset = (src: string) =>
+      /^\/(?!\/)[^\s\\?#<>"%]+$/.test(src) &&
+      !src.split('/').some((part) => part === '.' || part === '..')
+    for (const media of project.media) {
+      if (
+        !safeAsset(media.src) ||
+        !media.altOrCaption.trim() ||
+        !Number.isFinite(media.width) ||
+        !Number.isFinite(media.height) ||
+        media.width <= 0 ||
+        media.height <= 0 ||
+        (media.poster && !safeAsset(media.poster)) ||
+        (media.thumbnailSrc && !safeAsset(media.thumbnailSrc)) ||
+        (media.captions && !safeAsset(media.captions.src)) ||
+        (media.type === 'video' &&
+          (!media.poster || (media.hasAudio && !media.captions)))
+      )
+        issues.push(`Invalid media: ${project.slug}`)
+    }
+    for (const feature of project.features ?? []) {
+      if (
+        feature.mediaIndex !== undefined &&
+        (!Number.isInteger(feature.mediaIndex) ||
+          !project.media[feature.mediaIndex])
+      )
+        issues.push(`Invalid feature media: ${project.slug}`)
+    }
+    const nodeIds = new Set<string>()
+    for (const node of project.architectureNodes ?? []) {
+      if (
+        !/^[a-z0-9-]+$/.test(node.id) ||
+        nodeIds.has(node.id) ||
+        !node.label.trim() ||
+        !node.description.trim()
+      )
+        issues.push(`Invalid architecture node: ${project.slug}`)
+      nodeIds.add(node.id)
+    }
     if (
       project.status === 'published' &&
       (!project.summary?.trim() ||
+        !project.tagline?.trim() ||
+        !project.projectType?.trim() ||
         !project.role?.trim() ||
         !project.challenge?.trim() ||
         !project.solution?.trim() ||
         !project.architecture?.trim() ||
         !project.outcomes?.length ||
+        !project.engineeringChallenges?.length ||
         !project.technologies.length ||
         !project.media.length ||
         project.pending.length)

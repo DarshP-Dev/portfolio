@@ -6,7 +6,7 @@ export function ProjectPreview({ project }: { project: Project }) {
   return image ? (
     <img
       className="project-preview-image"
-      src={image.src}
+      src={image.thumbnailSrc ?? image.src}
       alt={image.altOrCaption}
       width={image.width}
       height={image.height}

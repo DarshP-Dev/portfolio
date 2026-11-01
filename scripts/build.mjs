@@ -36,12 +36,13 @@ for (const path of [...prerenderPaths(), '/404']) {
     <meta name="description" content="${escape(metadata.description)}" />
     <meta name="robots" content="${metadata.robots}" />
     <meta name="theme-color" content="#FAFAF8" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="${metadata.type}" />
     <meta property="og:title" content="${escape(metadata.title)}" />
     <meta property="og:description" content="${escape(metadata.description)}" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="${metadata.image ? 'summary_large_image' : 'summary'}" />
     <meta name="twitter:title" content="${escape(metadata.title)}" />
     <meta name="twitter:description" content="${escape(metadata.description)}" />
+    ${metadata.image ? `<meta property="og:image" content="${escape(metadata.image.url)}" /><meta property="og:image:alt" content="${escape(metadata.image.alt)}" /><meta property="og:image:width" content="${metadata.image.width}" /><meta property="og:image:height" content="${metadata.image.height}" /><meta name="twitter:image" content="${escape(metadata.image.url)}" /><meta name="twitter:image:alt" content="${escape(metadata.image.alt)}" />` : ''}
     ${metadata.canonical ? `<link rel="canonical" href="${escape(metadata.canonical)}" /><meta property="og:url" content="${escape(metadata.canonical)}" />` : ''}`
   const destination =
     path === '/'

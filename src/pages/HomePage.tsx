@@ -11,6 +11,7 @@ import { SkillsConstellation } from '../components/home/SkillsConstellation'
 import { JourneyTimeline } from '../components/home/JourneyTimeline'
 import { SectionStack } from '../components/home/SectionStack'
 import '../components/home/home.css'
+import { ProjectLink } from '../components/projects/ProjectLinks'
 
 export function HomePage() {
   const visible = visibleProjects(projects, site.includeDrafts)
@@ -74,9 +75,10 @@ export function HomePage() {
             {visible
               .filter((project) => !project.featured)
               .map((project) => (
-                <Link
+                <ProjectLink
                   className="supporting-project"
-                  to={`/projects/${project.slug}`}
+                  project={project}
+                  source="more"
                   key={project.id}
                 >
                   <span>
@@ -87,7 +89,7 @@ export function HomePage() {
                     <small>Draft case study · content pending</small>
                   </span>
                   <span aria-hidden="true">↗</span>
-                </Link>
+                </ProjectLink>
               ))}
           </div>
         </div>

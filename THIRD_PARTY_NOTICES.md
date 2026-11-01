@@ -21,3 +21,10 @@ dependencies; it adds no font parser to the browser bundle.
 
 GSAP and MorphSVGPlugin retain the license included with the installed `gsap`
 package. Other dependencies retain the license notices in their packages.
+
+Project screenshots and diagrams come from the owner-linked repositories and
+DeenStudio deployment; exact revisions and filenames are in `PROJECT_SOURCES.md`.
+Team-built interfaces are credited to the team. Screenshots may contain
+third-party artwork, game characters, trademarks or product interfaces; they are
+not represented as original artwork created by Darsh. Final asset-credit review
+remains part of the publication checklist.

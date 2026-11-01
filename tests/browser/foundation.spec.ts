@@ -20,8 +20,10 @@ test('hydrates, navigates to drafts, returns to anchors, and handles missing rou
   await expect(page).toHaveTitle('VisionControl — Darsh Patel')
   await expect(page.getByRole('heading', { level: 1 })).toBeFocused()
   await page.getByRole('link', { name: 'Back to All Projects' }).click()
-  await expect(page).toHaveURL(/\/#projects$/)
-  await expect(page.locator('#projects')).toBeFocused()
+  await expect(page).toHaveURL(/\/$/)
+  await expect(
+    page.getByRole('link', { name: '02 VisionControl' }),
+  ).toBeFocused()
   const response = await page.goto('/this-page-does-not-exist')
   expect(response?.status()).toBe(404)
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(

@@ -1,5 +1,19 @@
-import { findProject } from '../content/projects'
+import { findProject, type Project } from '../content/projects'
 import { site } from '../content/site'
+
+export function projectShareImage(
+  project: Project | undefined,
+  origin: string | undefined,
+) {
+  const image = project?.media.find((media) => media.type === 'image')
+  if (!image || !origin) return
+  return {
+    url: new URL(image.src, origin).href,
+    alt: image.altOrCaption,
+    width: image.width,
+    height: image.height,
+  }
+}
 
 export function pageMetadata(pathname: string) {
   const path = pathname.replace(/\/+$/, '') || '/'
@@ -8,6 +22,8 @@ export function pageMetadata(pathname: string) {
     : undefined
   const found = path === '/' || Boolean(project)
   return {
+    type: project ? 'article' : 'website',
+    image: projectShareImage(project, site.canonicalOrigin),
     title:
       path === '/'
         ? site.title
