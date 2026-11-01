@@ -21,7 +21,9 @@ export function HomePage() {
         <div className="hero-copy">
           <p className="eyebrow">Software Engineering Student</p>
           <h1 id="hero-name" tabIndex={-1}>
-            Darsh Patel<span>.</span>
+            <span className="hero-wordmark">
+              Darsh Patel<span className="hero-period">.</span>
+            </span>
           </h1>
           <p className="hero-headline">{site.headline}</p>
           <p className="hero-description">{site.description}</p>

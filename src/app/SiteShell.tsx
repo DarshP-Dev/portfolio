@@ -1,6 +1,8 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import { Link, useLocation } from 'react-router'
-import { navigation, site } from '../content/site'
+import { site } from '../content/site'
+import { SiteNavigation } from '../components/navigation/SiteNavigation'
+import { SignatureIntro } from '../components/intro/SignatureIntro'
 import { pageMetadata } from './metadata'
 
 function RouteEffects() {
@@ -65,25 +67,20 @@ function RouteEffects() {
 }
 
 export function SiteShell({ children }: { children: ReactNode }) {
-  const { pathname } = useLocation()
+  const { pathname, search } = useLocation()
+  const introPreview =
+    site.includeDrafts && new URLSearchParams(search).get('intro') === 'preview'
   return (
     <>
       <RouteEffects />
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
-      <header className="site-header page-width">
-        <Link to="/#home" className="brand" aria-label="Darsh Patel — home">
-          DP<span>.</span>
-        </Link>
-        <nav aria-label="Main navigation" className="primary-nav">
-          {navigation.map((item) => (
-            <Link key={item.id} to={`/#${item.id}`}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      </header>
+      <SignatureIntro
+        enabled={site.signatureIntroEnabled || introPreview}
+        preview={introPreview}
+      />
+      <SiteNavigation />
       <main id="main-content" tabIndex={-1}>
         {children}
       </main>

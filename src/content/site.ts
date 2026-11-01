@@ -6,6 +6,7 @@ export const site = {
   headline: 'Building thoughtful software, from idea to implementation.',
   // Phase 1 is a review build. Public indexing is deferred to Phase 6.
   includeDrafts: import.meta.env.VITE_INCLUDE_DRAFTS !== 'false',
+  signatureIntroEnabled: import.meta.env.VITE_ENABLE_SIGNATURE_INTRO === 'true',
   canonicalOrigin: import.meta.env.VITE_SITE_URL || undefined,
   github: undefined as string | undefined, // TODO: Verify the public profile before linking.
   linkedin: undefined as string | undefined,
