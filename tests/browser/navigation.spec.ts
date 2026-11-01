@@ -36,7 +36,9 @@ test('menu is a native disclosure with route-aware links, Escape and outside-cli
   await page.goBack()
   await expect(details).not.toHaveAttribute('open', '')
   await page.keyboard.press('Control+k')
-  await expect(page.getByRole('combobox')).toBeFocused()
+  await expect(
+    page.getByRole('combobox', { name: 'Search pages and actions' }),
+  ).toBeFocused()
   await page.goForward()
   await expect(
     page.getByRole('dialog', { name: 'Quick navigate' }),
@@ -50,12 +52,12 @@ test('command palette filters, navigates, handles empty results and restores foc
   const trigger = page.getByRole('button', { name: 'Search' })
   await trigger.click()
   const dialog = page.getByRole('dialog', { name: 'Quick navigate' })
-  const input = page.getByRole('combobox')
+  const input = page.getByRole('combobox', { name: 'Search pages and actions' })
   await expect(input).toBeFocused()
   await input.fill('not a thing')
   await expect(page.getByText('No matches.')).toBeVisible()
   await input.fill('vision')
-  await expect(page.getByRole('option')).toHaveCount(1)
+  await expect(dialog.getByRole('option')).toHaveCount(1)
   await input.press('Enter')
   await expect(dialog).not.toBeVisible()
   await expect(page).toHaveURL(/\/projects\/visioncontrol$/)
@@ -76,7 +78,7 @@ test('keyboard selection, modal focus containment, and backdrop close work', asy
 }) => {
   await page.goto('/')
   await page.keyboard.press('Meta+k')
-  const input = page.getByRole('combobox')
+  const input = page.getByRole('combobox', { name: 'Search pages and actions' })
   await expect(input).toBeFocused()
   const first = await input.getAttribute('aria-activedescendant')
   await input.press('ArrowDown')

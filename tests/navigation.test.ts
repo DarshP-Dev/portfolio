@@ -8,8 +8,14 @@ import { shouldPlayIntro } from '../src/components/intro/session'
 describe('command index', () => {
   it('excludes drafts and unavailable owner actions from the public index', () => {
     const actions = buildCommands()
-    expect(actions).toHaveLength(6)
-    expect(actions.every((action) => action.group === 'Section')).toBe(true)
+    expect(actions.filter((action) => action.group === 'Section')).toHaveLength(
+      6,
+    )
+    expect(
+      actions
+        .filter((action) => action.group === 'Action')
+        .map((action) => action.id),
+    ).toEqual(['github', 'linkedin', 'email'])
     expect(actions.some((action) => action.id === 'resume')).toBe(false)
   })
   it('includes explicitly labeled project drafts only in review mode', () => {
@@ -21,7 +27,7 @@ describe('command index', () => {
       projects.every((action) => action.description.includes('Draft')),
     ).toBe(true)
     expect(new Set(buildCommands(true).map((action) => action.id)).size).toBe(
-      13,
+      16,
     )
   })
   it('filters case-insensitive multi-word queries and journey synonyms', () => {
@@ -32,7 +38,7 @@ describe('command index', () => {
       '/#experience',
     )
     expect(filterCommands(buildCommands(), 'nothing matches')).toEqual([])
-    expect(filterCommands(buildCommands(), '  ')).toHaveLength(6)
+    expect(filterCommands(buildCommands(), '  ')).toHaveLength(9)
   })
 })
 

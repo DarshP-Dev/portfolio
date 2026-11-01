@@ -12,6 +12,7 @@ import { JourneyTimeline } from '../components/home/JourneyTimeline'
 import { SectionStack } from '../components/home/SectionStack'
 import '../components/home/home.css'
 import { ProjectLink } from '../components/projects/ProjectLinks'
+import { ContactLetter } from '../components/contact/ContactLetter'
 
 export function HomePage() {
   const visible = visibleProjects(projects, site.includeDrafts)
@@ -37,9 +38,15 @@ export function HomePage() {
             <Link to="/#projects" className="action-link">
               View Projects <span aria-hidden="true">↗</span>
             </Link>
-            <span className="pending-action">
-              Resume <span className="pending-label">PDF pending</span>
-            </span>
+            {site.resume ? (
+              <a href={site.resume} download className="text-link">
+                Resume <span aria-hidden="true">↓</span>
+              </a>
+            ) : (
+              <span className="pending-action">
+                Resume <span className="pending-label">PDF pending</span>
+              </span>
+            )}
           </div>
         </div>
         <HeroProjects
@@ -111,7 +118,10 @@ export function HomePage() {
               Contact Me <span aria-hidden="true">↗</span>
             </Link>
           </div>
-          <ProfileCard />
+          <ProfileCard
+            avatarUrl={site.portrait.src}
+            placeholder={site.portrait.placeholder}
+          />
         </div>
       </Section>
       <Section
@@ -144,27 +154,7 @@ export function HomePage() {
         title="Let’s start a conversation."
         className="contact-section"
       >
-        <div className="contact-foundation">
-          <div className="correspondence-heading">
-            <span className="eyebrow">Correspondence / 01</span>
-            <span className="mono quiet">Darsh Patel</span>
-          </div>
-          <p className="letter-greeting">Dear Darsh,</p>
-          <p className="contact-copy">
-            Have an opportunity, an idea to build together, or simply something
-            to say?
-          </p>
-          <div className="letter-rule" />
-          <p className="content-note">
-            Contact details are pending verification. You’ll be able to send a
-            letter from here once message delivery is available.
-          </p>
-          <p className="letter-closing">
-            Sincerely,
-            <br />
-            <span className="quiet">A future conversation.</span>
-          </p>
-        </div>
+        <ContactLetter />
       </Section>
     </SectionStack>
   )

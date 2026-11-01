@@ -1,10 +1,17 @@
 // Light, reduced-motion adaptation of the supplied React Bits ProfileCard.
 // Copyright David Haz; public/third-party/react-bits-license.txt.
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { gsap } from 'gsap'
 
-export function ProfileCard({ avatarUrl }: { avatarUrl?: string }) {
+export function ProfileCard({
+  avatarUrl,
+  placeholder = false,
+}: {
+  avatarUrl?: string
+  placeholder?: boolean
+}) {
+  const [imageFailed, setImageFailed] = useState(false)
   const root = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const element = root.current!
@@ -87,11 +94,19 @@ export function ProfileCard({ avatarUrl }: { avatarUrl?: string }) {
     <div className="profile-card" ref={root}>
       <div className="profile-card-body">
         <div className="profile-card-tile">
-          {avatarUrl ? (
+          {avatarUrl && !imageFailed ? (
             <img
+              ref={(image) => {
+                if (image?.complete && !image.naturalWidth) setImageFailed(true)
+              }}
               className="profile-card-photo"
               src={avatarUrl}
-              alt="Darsh Patel"
+              alt={
+                placeholder
+                  ? 'Darsh Patel — temporary DP portrait placeholder'
+                  : 'Darsh Patel'
+              }
+              onError={() => setImageFailed(true)}
               width="680"
               height="850"
               loading="lazy"

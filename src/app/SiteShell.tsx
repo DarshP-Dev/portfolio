@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react'
-import { Link, useLocation } from 'react-router'
+import { useLocation } from 'react-router'
 import { site } from '../content/site'
 import { SiteNavigation } from '../components/navigation/SiteNavigation'
 import { SignatureIntro } from '../components/intro/SignatureIntro'
 import { pageMetadata } from './metadata'
 import { RouteEffects } from './RouteEffects'
+import { SiteFooter } from '../components/layout/SiteFooter'
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const { pathname, search } = useLocation()
@@ -24,21 +25,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <main id="main-content" tabIndex={-1}>
         {children}
       </main>
-      <footer className="site-footer page-width">
-        <Link
-          to="/#home"
-          className="brand"
-          aria-label="Darsh Patel — back to top"
-        >
-          DP<span>.</span>
-        </Link>
-        <p>
-          © {new Date().getFullYear()} {site.name}
-        </p>
-        <p className="footer-note">
-          Social links & resume pending verification.
-        </p>
-      </footer>
+      <SiteFooter />
       <div
         className="sr-only"
         role="status"

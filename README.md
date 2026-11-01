@@ -5,6 +5,8 @@ React Router, and locally served Geist / Inter / JetBrains Mono variable fonts.
 Phase 2 adds accessible navigation and a review-only signature intro prototype.
 Phase 3 adds responsive homepage interactions and native desktop section stacking.
 Phase 4 adds the shared editorial case-study system and source-backed project drafts.
+Phase 5 adds the correspondence letter, live receipt, footer links and prepared
+server-side Resend integration. Delivery remains disabled pending configuration.
 This is a review build, not a completed public portfolio.
 
 ## Development
@@ -32,11 +34,12 @@ without rewriting unknown paths to the homepage. Stop it with Ctrl+C.
 ## Content and configuration
 
 - `src/content/projects.ts`: seven draft records; shared listing, route and build data.
-- `src/content/site.ts`: approved hero copy, anchors and pending owner links.
+- `src/content/site.ts`: approved hero copy, anchors, public links and asset paths.
 - `src/content/skills.ts` and `timeline.ts`: structure awaiting verified facts.
 - `src/index.css`: approved light tokens, typography and responsive styling.
 - `src/entry-server.tsx` / `scripts/build.mjs`: finite-route static generation.
 - `CONTENT_TODO.md`: owner-supplied inputs and publication requirements.
+- `CONTACT_SETUP.md`: server-only email configuration, delivery checks and asset replacement.
 
 Copy `.env.example` to `.env.local` if configuration is needed. `VITE_SITE_URL`
 is an optional verified origin for canonical/OG URLs; no domain is invented.
@@ -46,15 +49,16 @@ is true for this review phase. Client and server builds read the same Vite mode.
 Use `BUILD_MODE` to select another mode for both builds together.
 
 All review HTML carries `noindex, nofollow`; `robots.txt` disallows crawling.
-Public indexing, sitemap and final social images belong to Phase 6. The contact
-form remains a later phase. Case studies remain development drafts until final
-content, media and ownership review is complete.
-Unknown resume/social/email URLs are shown as pending, not links.
+Public indexing, sitemap and final social images belong to Phase 6. Case studies
+remain development drafts until final content, media and ownership review is complete.
+The approved GitHub, LinkedIn and public email are active. Resume downloads stay
+pending until the approved PDF is added at the documented path and rebuilt.
 `published` records fail validation if required content/media is missing or TODOs
 remain. This check does not replace owner review of factual accuracy.
 
 Never put secrets in a `VITE_*` variable: those are included in browser code.
-No credentials are needed for this phase.
+No credentials are needed to review the site. Actual contact delivery requires
+the server settings documented in `CONTACT_SETUP.md` and is not yet verified.
 
 ## Phase 2 review
 
@@ -159,6 +163,30 @@ Original media stays available in the viewer. The Windows helper
 Final screenshots for Finance Tracker and Bluff House, final wording/asset credit
 review, and independent application acceptance remain pending.
 
+## Phase 5 review
+
+The paper letter uses native labeled controls, a conditional Other subject,
+inline errors and a focusable error summary. Its clipped receipt follows the
+same form values: category, reply address, filing label and truthful readiness
+state. On phones it sits above the fields; on desktop it offsets at the top-right
+without covering controls. The decorative barcode contains no tracking data.
+Only a successful server/provider response adds SENT, the actual reference and
+the server confirmation timestamp. Failed and ambiguous requests retain the
+draft, and pending submission locks prevent duplicates.
+
+`api/contact.ts` handles delivery on Vercel; `server/contact-handler.ts` shares
+validation with the UI and adds origin checks, body limits, a honeypot, durable
+rate limiting and provider idempotency. API keys stay server-side. Local dev and
+built preview expose the endpoint but disable real delivery by default. See
+[CONTACT_SETUP.md](CONTACT_SETUP.md) for the outstanding provider/domain setup
+and the deliberate delivery test required before claiming Gmail delivery works.
+
+The footer displays the approved email with a working Copy Email control plus
+real GitHub/LinkedIn links. The ProfileCard uses the labeled WebP monogram at
+`public/images/profile.webp`. No final portrait or resume is published. Resume
+links activate after an approved PDF is added at
+`public/resume/Darsh_Patel_Resume.pdf` and the site is rebuilt.
+
 ## Checks
 
 ```sh
@@ -191,6 +219,12 @@ accessibility. A second loopback-only Vite server serves `tests/fixtures/media`
 on port 4177 (`FIXTURE_PORT` can override it). That fixture is excluded from the
 production entry and output. Its silent one-frame test video lives only in the isolated test fixture.
 Case-study screenshots are saved in ignored `.cache/phase4`.
+Phase 5 checks cover shared field validation, server configuration/origin/IP
+boundaries, hashed atomic rate limiting, Reply-To and provider idempotency,
+confirmed/failed/ambiguous receipts, duplicate submission locks, draft retention,
+keyboard errors, no-JS fallbacks, real clipboard behavior, portrait failure,
+responsive receipt placement and 200% text. Mocked delivery tests never send mail.
+Review screenshots are saved in ignored `.cache/phase5`.
 
 ## Vercel (prepared, not deployed)
 
@@ -199,6 +233,9 @@ Static `/projects/<slug>/index.html` documents provide each route's own response
 HTML. `404.html` supplies the error page; no catch-all homepage rewrite masks
 missing paths. Verify actual preview-host behavior before production in Phase 6.
 The server render bundle in `dist-ssr` is a build tool and is not deployed.
+Vercel also deploys the Node function in `api/contact.ts`; static-only hosting of
+`dist` does not provide the email endpoint. Its deployed runtime and actual email
+delivery still need the checks in `CONTACT_SETUP.md`.
 
 Font licenses ship in `public/font-licenses`. The React Bits adapters'
 upstream license is in `public/third-party`; see `THIRD_PARTY_NOTICES.md`.

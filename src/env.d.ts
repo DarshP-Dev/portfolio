@@ -1,0 +1,1 @@
+declare const __APPROVED_RESUME_AVAILABLE__: boolean

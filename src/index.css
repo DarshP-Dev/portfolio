@@ -541,45 +541,6 @@ p {
 .contact-section {
   border-bottom: none;
 }
-.contact-foundation {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  padding: clamp(24px, 5vw, 64px);
-  margin-top: 42px;
-  max-width: 940px;
-}
-.correspondence-heading {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  border-bottom: 1px solid var(--color-line);
-  padding-bottom: 22px;
-}
-.correspondence-heading .mono {
-  font-size: 0.65rem;
-}
-.letter-greeting {
-  font-family: var(--font-heading);
-  font-size: 1.65rem;
-  letter-spacing: -0.04em;
-  margin: 36px 0 18px;
-}
-.contact-copy {
-  font-size: 0.95rem;
-  max-width: 490px;
-}
-.letter-rule {
-  height: 1px;
-  background: var(--color-line);
-  margin-top: 35px;
-}
-.letter-closing {
-  margin-top: 35px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  line-height: 2;
-}
 .site-footer {
   border-top: 1px solid var(--color-line);
   padding-block: 26px;
@@ -591,9 +552,6 @@ p {
 .site-footer p {
   font-size: 0.68rem;
   color: var(--color-muted);
-}
-.footer-note {
-  margin-left: auto;
 }
 .project-page {
   padding-block: 34px 80px;

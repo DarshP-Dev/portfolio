@@ -8,10 +8,15 @@ export const site = {
   includeDrafts: import.meta.env.VITE_INCLUDE_DRAFTS !== 'false',
   signatureIntroEnabled: import.meta.env.VITE_ENABLE_SIGNATURE_INTRO === 'true',
   canonicalOrigin: import.meta.env.VITE_SITE_URL || undefined,
-  github: undefined as string | undefined, // TODO: Verify the public profile before linking.
-  linkedin: undefined as string | undefined,
-  email: undefined as string | undefined,
-  resume: undefined as string | undefined,
+  github: 'https://github.com/DarshP-Dev',
+  linkedin: 'https://www.linkedin.com/in/darshpatel-dev',
+  email: 'darshpatel060106@gmail.com',
+  portrait: { src: '/images/profile.webp', placeholder: true },
+  resume:
+    typeof __APPROVED_RESUME_AVAILABLE__ !== 'undefined' &&
+    __APPROVED_RESUME_AVAILABLE__
+      ? '/resume/Darsh_Patel_Resume.pdf'
+      : undefined,
 }
 
 export const navigation = [

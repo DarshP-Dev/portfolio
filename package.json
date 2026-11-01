@@ -12,8 +12,8 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "generate:intro": "node scripts/generate-intro.mjs",
-    "format": "prettier --write src scripts tests *.ts *.json index.html README.md CONTENT_TODO.md",
-    "format:check": "prettier --check src scripts tests *.ts *.json index.html README.md CONTENT_TODO.md"
+    "format": "prettier --write src server api scripts tests *.ts *.json index.html README.md CONTENT_TODO.md CONTACT_SETUP.md",
+    "format:check": "prettier --check src server api scripts tests *.ts *.json index.html README.md CONTENT_TODO.md CONTACT_SETUP.md"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",

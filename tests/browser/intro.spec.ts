@@ -207,7 +207,9 @@ test('reduced motion bypasses the prototype and keyboard navigation stays availa
     page.getByRole('status').filter({ hasText: 'Reduced motion' }),
   ).toBeVisible()
   await page.getByRole('button', { name: 'Search' }).click()
-  await expect(page.getByRole('combobox')).toBeFocused()
+  await expect(
+    page.getByRole('combobox', { name: 'Search pages and actions' }),
+  ).toBeFocused()
 })
 
 test('blocked session storage does not trap the page or replay within the document', async ({
