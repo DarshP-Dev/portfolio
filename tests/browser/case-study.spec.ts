@@ -63,7 +63,9 @@ test('real gallery supports selection, a modal, zoom, keyboard navigation and fo
 test('gallery recovers from a broken image and supports single/pending media states', async ({
   page,
 }) => {
-  await page.route('**/pokemon-style-rpg/world.png', (route) => route.abort())
+  await page.route(/\/pokemon-style-rpg\/world(?:\.png|-\d+\.webp)$/, (route) =>
+    route.abort(),
+  )
   await page.goto('/projects/pokemon-style-rpg')
   await expect(page.getByText('This media could not be loaded.')).toBeVisible()
   await page.getByRole('button', { name: 'Next media', exact: true }).click()

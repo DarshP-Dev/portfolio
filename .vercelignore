@@ -1,0 +1,12 @@
+.git
+node_modules
+.cache
+.env
+.env.*
+!.env.example
+dist
+dist-ssr
+test-results
+playwright-report
+design-references
+*.zip

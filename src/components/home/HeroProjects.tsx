@@ -183,9 +183,18 @@ export function HeroProjects({ projects }: { projects: Project[] }) {
             <ProjectLink
               project={project}
               source="hero"
-              aria-label={`${String(project.order).padStart(2, '0')} ${project.title}`}
+              aria-label={`${String(project.order).padStart(2, '0')} ${project.media.some((media) => media.type === 'image') ? '' : 'Screenshot pending '}${project.title}`}
             >
-              <ProjectPreview project={project} />
+              <ProjectPreview
+                project={project}
+                hero
+                priority={
+                  index ===
+                  projects.findIndex((item) =>
+                    item.media.some((media) => media.type === 'image'),
+                  )
+                }
+              />{' '}
               <span className="orbit-title">
                 {project.title}
                 <span aria-hidden="true">↗</span>

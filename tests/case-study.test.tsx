@@ -146,14 +146,14 @@ describe('case-study content and publication', () => {
     expect(video).toContain('kind="captions"')
     expect(video).not.toContain('autoPlay')
   })
-  it('produces absolute social image metadata only with a configured origin and a real image', () => {
+  it('produces distinct absolute share-card metadata only with a configured origin', () => {
     const rpg = projects.find((project) => project.id === 'pokemon-style-rpg')!
     expect(projectShareImage(rpg, undefined)).toBeUndefined()
     expect(
-      projectShareImage(projects[0], 'https://portfolio.example'),
-    ).toBeUndefined()
+      projectShareImage(projects[0], 'https://portfolio.example')?.url,
+    ).toBe('https://portfolio.example/og/personal-finance-tracker.png')
     expect(projectShareImage(rpg, 'https://portfolio.example')?.url).toBe(
-      'https://portfolio.example/images/projects/pokemon-style-rpg/world.png',
+      'https://portfolio.example/og/pokemon-style-rpg.png',
     )
   })
   it('has no publication-ready records merely because source-based copy is available', () => {

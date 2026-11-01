@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react'
 import type { ProjectMedia } from '../../content/projects'
 import { useHydrated } from '../../hooks/useHydrated'
 import { EmptyAssetPlaceholder } from '../common/EmptyAssetPlaceholder'
+import { responsiveImage } from '../common/responsive-image'
 
 function MediaAsset({
   media,
@@ -57,10 +58,12 @@ function MediaAsset({
         if (image?.complete && !image.naturalWidth) setFailed(true)
       }}
       src={media.src}
+      {...responsiveImage(media.src, '(min-width: 1280px) 1200px, 95vw')}
       alt={media.altOrCaption}
       width={media.width}
       height={media.height}
       loading={eager ? 'eager' : 'lazy'}
+      fetchPriority={eager ? 'high' : undefined}
       decoding="async"
       onError={() => setFailed(true)}
     />

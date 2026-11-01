@@ -1,0 +1,200 @@
+{
+  "/images/projects/visioncontrol/virtual-state.png": {
+    "width": 540,
+    "height": 390,
+    "variants": [
+      {
+        "src": "/images/projects/visioncontrol/virtual-state-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/visioncontrol/virtual-state-540.webp",
+        "width": 540
+      }
+    ]
+  },
+  "/images/projects/argus/hub.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/argus/hub-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/argus/hub-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/argus/hub-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/argus/hub-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/argus/browser-tab.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/argus/browser-tab-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/argus/browser-tab-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/argus/browser-tab-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/argus/browser-tab-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/argus/terminal-recovery.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/argus/terminal-recovery-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/argus/terminal-recovery-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/argus/terminal-recovery-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/argus/terminal-recovery-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/deenstudio/verse-selection.png": {
+    "width": 1274,
+    "height": 1011,
+    "variants": [
+      {
+        "src": "/images/projects/deenstudio/verse-selection-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/deenstudio/verse-selection-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/deenstudio/verse-selection-1274.webp",
+        "width": 1274
+      }
+    ]
+  },
+  "/images/projects/pokemon-style-rpg/world.png": {
+    "width": 1149,
+    "height": 865,
+    "variants": [
+      {
+        "src": "/images/projects/pokemon-style-rpg/world-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/pokemon-style-rpg/world-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/pokemon-style-rpg/world-1149.webp",
+        "width": 1149
+      }
+    ]
+  },
+  "/images/projects/pokemon-style-rpg/starter.png": {
+    "width": 1036,
+    "height": 523,
+    "variants": [
+      {
+        "src": "/images/projects/pokemon-style-rpg/starter-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/pokemon-style-rpg/starter-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/pokemon-style-rpg/starter-1036.webp",
+        "width": 1036
+      }
+    ]
+  },
+  "/images/projects/pokemon-style-rpg/battle.png": {
+    "width": 1098,
+    "height": 697,
+    "variants": [
+      {
+        "src": "/images/projects/pokemon-style-rpg/battle-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/pokemon-style-rpg/battle-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/pokemon-style-rpg/battle-1098.webp",
+        "width": 1098
+      }
+    ]
+  },
+  "/images/projects/fsm-sequence-detector/states.png": {
+    "width": 964,
+    "height": 342,
+    "variants": [
+      {
+        "src": "/images/projects/fsm-sequence-detector/states-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/fsm-sequence-detector/states-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/fsm-sequence-detector/states-964.webp",
+        "width": 964
+      }
+    ]
+  },
+  "/images/projects/fsm-sequence-detector/waveform.png": {
+    "width": 940,
+    "height": 213,
+    "variants": [
+      {
+        "src": "/images/projects/fsm-sequence-detector/waveform-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/fsm-sequence-detector/waveform-940.webp",
+        "width": 940
+      }
+    ]
+  },
+  "/images/projects/fsm-sequence-detector/comparison.png": {
+    "width": 913,
+    "height": 286,
+    "variants": [
+      {
+        "src": "/images/projects/fsm-sequence-detector/comparison-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/fsm-sequence-detector/comparison-913.webp",
+        "width": 913
+      }
+    ]
+  }
+}

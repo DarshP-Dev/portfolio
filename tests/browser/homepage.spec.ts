@@ -103,7 +103,9 @@ test('mobile previews use a manual horizontal row, while the gallery stays verti
   expect(await row.evaluate((el) => el.scrollLeft)).toBeGreaterThan(100)
   await page.getByRole('button', { name: 'Previous project preview' }).click()
   await expect(
-    page.getByRole('link', { name: '01 Personal Finance Tracker' }),
+    page.getByRole('link', {
+      name: '01 Screenshot pending Personal Finance Tracker',
+    }),
   ).toBeFocused()
   await page.screenshot({ path: '.cache/phase3/hero-mobile.png' })
   const cards = page.locator('.featured-gallery > li')

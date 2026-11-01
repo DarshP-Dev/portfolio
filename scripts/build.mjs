@@ -1,19 +1,39 @@
-import { readFile, writeFile, mkdir } from 'node:fs/promises'
-import { resolve, dirname } from 'node:path'
+import { readFile, writeFile, mkdir, cp } from 'node:fs/promises'
+import { resolve, dirname, sep, relative } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { build } from 'vite'
 
 // Both bundles consume the same Vite mode/env and the same route/content source.
 const mode = process.env.BUILD_MODE || 'production'
-await build({ mode })
+const outputRoot = resolve(process.env.BUILD_OUTPUT_ROOT || '.')
+if (
+  process.env.BUILD_OUTPUT_ROOT &&
+  !outputRoot.startsWith(resolve('.cache/phase6') + sep)
+)
+  throw new Error(
+    'QA build outputs must stay inside this checkout’s .cache/phase6 directory.',
+  )
+const clientDirectory = resolve(outputRoot, 'dist')
+const serverDirectory = resolve(outputRoot, 'dist-ssr')
+await build({ mode, build: { outDir: clientDirectory, copyPublicDir: false } })
 await build({
   mode,
-  build: { ssr: 'src/entry-server.tsx', outDir: 'dist-ssr' },
+  build: { ssr: 'src/entry-server.tsx', outDir: serverDirectory },
 })
-const { render, prerenderPaths } = await import(
-  pathToFileURL(resolve('dist-ssr/entry-server.js')).href
-)
-const template = await readFile('dist/index.html', 'utf8')
+const { render, prerenderPaths, publicationFiles, publicAssets, includeAsset } =
+  await import(pathToFileURL(resolve(serverDirectory, 'entry-server.js')).href)
+const publicRoot = resolve('public')
+const allowedAssets = publicAssets()
+await cp(publicRoot, clientDirectory, {
+  recursive: true,
+  filter: (source) =>
+    includeAsset(
+      relative(publicRoot, source).split(sep).join('/'),
+      allowedAssets.projectSlugs,
+      allowedAssets.resumeUrl,
+    ),
+})
+const template = await readFile(resolve(clientDirectory, 'index.html'), 'utf8')
 if (
   !template.includes('<!--app-html-->') ||
   !template.includes('<!--page-head-->')
@@ -46,10 +66,10 @@ for (const path of [...prerenderPaths(), '/404']) {
     ${metadata.canonical ? `<link rel="canonical" href="${escape(metadata.canonical)}" /><meta property="og:url" content="${escape(metadata.canonical)}" />` : ''}`
   const destination =
     path === '/'
-      ? 'dist/index.html'
+      ? resolve(clientDirectory, 'index.html')
       : path === '/404'
-        ? 'dist/404.html'
-        : `dist${path}/index.html`
+        ? resolve(clientDirectory, '404.html')
+        : resolve(clientDirectory, `.${path}/index.html`)
   await mkdir(dirname(destination), { recursive: true })
   await writeFile(
     destination,
@@ -59,5 +79,6 @@ for (const path of [...prerenderPaths(), '/404']) {
   )
   console.log(`Prerendered ${path}`)
 }
-// Phase 1 is an explicitly non-indexable review build, including draft pages.
-await writeFile('dist/robots.txt', 'User-agent: *\nDisallow: /\n')
+const crawlers = publicationFiles()
+await writeFile(resolve(clientDirectory, 'robots.txt'), crawlers.robots)
+await writeFile(resolve(clientDirectory, 'sitemap.xml'), crawlers.sitemap)

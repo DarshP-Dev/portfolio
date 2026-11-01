@@ -104,8 +104,9 @@ server after changing them. Return the local opt-in to `false` afterward.
   regeneration script live in `scripts/profile-placeholder.svg` and
   `scripts/generate-profile-placeholder.mjs`.
 - Add only the reviewed resume at
-  `public/resume/Darsh_Patel_Resume.pdf`. No old resume or fake PDF is included.
-  The build checks that this exact path exists and starts with a PDF signature;
+  `public/resume/Darsh_Patel_Resume.pdf` by default. To keep another approved filename,
+  set `VITE_RESUME_PATH` (for example `/resume/Darsh_Patel_Resume_Final.pdf`). No old
+  resume or fake PDF is included. The build checks that the configured file exists and starts with a PDF signature;
   hero, footer and command-palette links activate together after a rebuild
   (restart Vite during development). Existence/signature checks do not establish
   that its content is current: the file still needs owner approval. Until then,

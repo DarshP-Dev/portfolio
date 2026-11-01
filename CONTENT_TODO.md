@@ -4,7 +4,7 @@ All seven projects are development drafts. Do not change a record to `published`
 until its factual claims and media have been reviewed. The build rejects incomplete
 published records. All review pages are `noindex, nofollow`.
 
-- [ ] Owner-approved resume PDF at `public/resume/Darsh_Patel_Resume.pdf` (old resume excluded; links remain pending).
+- [ ] Owner-approved resume PDF in `public/resume/`, matching `VITE_RESUME_PATH` (default `Darsh_Patel_Resume.pdf`; `Darsh_Patel_Resume_Final.pdf` is configurable). Old resume excluded; links remain pending.
 - [ ] Owner-approved portrait and crop to replace `public/images/profile.webp` (labeled DP placeholder included).
 - [ ] Verified biography, program wording, skills, education and experience dates.
 - [x] Approved public/recipient email `darshpatel060106@gmail.com`, LinkedIn `darshpatel-dev` and GitHub `DarshP-Dev` wired into the site.
@@ -27,7 +27,12 @@ published records. All review pages are `noindex, nofollow`.
 - [ ] Resend API key, verified sending domain/address, trusted origins and durable rate-limit credentials; see `CONTACT_SETUP.md`.
 - [ ] Preview-host function verification and actual Gmail delivery/Reply-To acceptance test after configuration. Real delivery is not yet verified.
 - [ ] Owner visual review of the Phase 5 paper letter, receipt, footer and portrait placeholder.
-- [ ] Verified canonical domain and project-specific OG images (Phase 6).
+- [x] Eight route-specific social cards, responsive screenshot derivatives, guarded indexing and robots/sitemap generation prepared (Phase 6).
+- [x] Local raw-HTML/asset verification and isolated preview/public publication tests.
+- [ ] Owner review of share cards and existing source-media permissions before publication.
+- [ ] Vercel project creation, GitHub integration and any deployment: explicitly deferred by owner; approval required.
+- [ ] Verify the actual assigned Vercel default domain, set canonical origin, and later migrate to the approved custom domain.
+- [ ] Preview-host routing/function/cache checks, actual social-crawler preview and production acceptance after deployment is authorized.
 
 Never invent metrics, graduation dates, roles or project links. Student Works Canada
 Production Manager is someone else's experience and must remain excluded.

@@ -1,1 +1,2 @@
-declare const __APPROVED_RESUME_AVAILABLE__: boolean
+declare const __APPROVED_RESUME_URL__: string | null
+declare const __PUBLICATION__: import('./content/publication').PublicationSettings

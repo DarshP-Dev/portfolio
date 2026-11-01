@@ -24,8 +24,15 @@ const types = {
   '.webm': 'video/webm',
   '.mp4': 'video/mp4',
   '.vtt': 'text/vtt; charset=utf-8',
+  '.xml': 'application/xml; charset=utf-8',
 }
 const server = createServer(async (request, response) => {
+  response.setHeader('X-Content-Type-Options', 'nosniff')
+  response.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
+  response.setHeader(
+    'Permissions-Policy',
+    'camera=(), microphone=(), geolocation=()',
+  )
   if (/^\/api\/contact\/?(?:\?|$)/.test(request.url ?? '')) {
     await contact(request, response)
     return
@@ -43,6 +50,9 @@ const server = createServer(async (request, response) => {
       const bytes = await readFile(file)
       response.writeHead(200, {
         'Content-Type': types[extname(file)] || 'application/octet-stream',
+        'Cache-Control': pathname.startsWith('/assets/')
+          ? 'public, max-age=31536000, immutable'
+          : 'no-cache',
       })
       response.end(request.method === 'HEAD' ? undefined : bytes)
     } catch {

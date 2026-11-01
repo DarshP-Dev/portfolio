@@ -66,7 +66,7 @@ export function SiteNavigation() {
         <Link
           to="/#home"
           className="brand brand-bubble"
-          aria-label="Darsh Patel — home"
+          aria-label="DP. — Darsh Patel, home"
         >
           DP<span>.</span>
         </Link>

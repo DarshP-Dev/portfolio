@@ -81,7 +81,7 @@ export function BubbleMenu({ beforeOpen }: { beforeOpen: () => void }) {
       <summary
         ref={summary}
         className="bubble-control menu-toggle"
-        aria-label={open ? 'Close navigation' : 'Open navigation'}
+        aria-label={open ? 'Menu — close navigation' : 'Menu — open navigation'}
         aria-controls="bubble-navigation"
       >
         <span>Menu</span>

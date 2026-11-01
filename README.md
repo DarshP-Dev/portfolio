@@ -7,6 +7,9 @@ Phase 3 adds responsive homepage interactions and native desktop section stackin
 Phase 4 adds the shared editorial case-study system and source-backed project drafts.
 Phase 5 adds the correspondence letter, live receipt, footer links and prepared
 server-side Resend integration. Delivery remains disabled pending configuration.
+Phase 6 prepares publication controls, social cards, responsive image delivery,
+stronger quality checks and Vercel deployment instructions. Hosting is deferred
+at the owner's request; the portfolio is not live.
 This is a review build, not a completed public portfolio.
 
 ## Development
@@ -40,6 +43,7 @@ without rewriting unknown paths to the homepage. Stop it with Ctrl+C.
 - `src/entry-server.tsx` / `scripts/build.mjs`: finite-route static generation.
 - `CONTENT_TODO.md`: owner-supplied inputs and publication requirements.
 - `CONTACT_SETUP.md`: server-only email configuration, delivery checks and asset replacement.
+- `DEPLOYMENT_READINESS.md`: future Vercel settings, publication gates and configurable resume path.
 
 Copy `.env.example` to `.env.local` if configuration is needed. `VITE_SITE_URL`
 is an optional verified origin for canonical/OG URLs; no domain is invented.
@@ -49,8 +53,12 @@ is true for this review phase. Client and server builds read the same Vite mode.
 Use `BUILD_MODE` to select another mode for both builds together.
 
 All review HTML carries `noindex, nofollow`; `robots.txt` disallows crawling.
-Public indexing, sitemap and final social images belong to Phase 6. Case studies
-remain development drafts until final content, media and ownership review is complete.
+Review builds remain noindex. `VITE_SITE_INDEXABLE=true` requires a verified HTTPS
+origin and `VITE_INCLUDE_DRAFTS=false`; preview deployments stay noindex regardless.
+Canonical/OG tags use the configured origin, with a distinct share card for each
+project. The build generates the matching robots file and sitemap; review sitemaps
+are empty. Case studies remain development drafts until final content, media and
+ownership review is complete.
 The approved GitHub, LinkedIn and public email are active. Resume downloads stay
 pending until the approved PDF is added at the documented path and rebuilt.
 `published` records fail validation if required content/media is missing or TODOs
@@ -185,7 +193,28 @@ The footer displays the approved email with a working Copy Email control plus
 real GitHub/LinkedIn links. The ProfileCard uses the labeled WebP monogram at
 `public/images/profile.webp`. No final portrait or resume is published. Resume
 links activate after an approved PDF is added at
-`public/resume/Darsh_Patel_Resume.pdf` and the site is rebuilt.
+`public/resume/Darsh_Patel_Resume.pdf` (or the approved filename configured through
+`VITE_RESUME_PATH`) and the site is rebuilt.
+
+## Phase 6 review
+
+All existing project screenshots now have authored responsive WebP derivatives;
+originals remain available as fallbacks and for source inspection. The summed
+full-size WebP files are 76% smaller than the 11 source PNGs. The browser selects
+appropriate sizes for hero cards, the gallery and case studies. The first real
+hero image and the initial case-study image load eagerly; other previews, the
+portrait and offscreen media remain deferred. Videos retain `preload="none"`.
+
+Eight neutral 1200 × 630 social cards use project titles, verified copy and existing
+screenshots where available. `npm run generate:media` regenerates these assets
+locally after `npm run build`; deployment builds need no Chrome. Existing source
+credit and media approval requirements still apply to these derivatives.
+
+Accessible DP/Menu labels include their visible words, and placeholder project
+links retain both their visible status and title. Phase 6 checks include WCAG 2.1
+label-in-name coverage, forced colors, 320px reflow, actual responsive downloads,
+raw response metadata, share-card dimensions, draft exclusion and crawler policy.
+See `QUALITY_REVIEW.md` for local measurements and the limits of automated review.
 
 ## Checks
 
@@ -195,6 +224,8 @@ npm run lint
 npm test
 npm run format:check
 npm run build
+npm run check:build
+npm run check:publication
 npm run test:e2e
 ```
 
@@ -225,6 +256,11 @@ confirmed/failed/ambiguous receipts, duplicate submission locks, draft retention
 keyboard errors, no-JS fallbacks, real clipboard behavior, portrait failure,
 responsive receipt placement and 200% text. Mocked delivery tests never send mail.
 Review screenshots are saved in ignored `.cache/phase5`.
+Phase 6 adds publication/asset unit tests and `quality.spec.ts`. The build checker
+validates generated pages and client/server boundaries. Publication test builds
+use reserved fixture origins inside ignored `.cache/phase6`, with no deployment
+or changes to the normal build settings. Live link checking is a separate explicit
+`npm run check:links` command. Lighthouse reports and QA notes live in `.cache/phase6`.
 
 ## Vercel (prepared, not deployed)
 
@@ -240,6 +276,5 @@ delivery still need the checks in `CONTACT_SETUP.md`.
 Font licenses ship in `public/font-licenses`. The React Bits adapters'
 upstream license is in `public/third-party`; see `THIRD_PARTY_NOTICES.md`.
 
-Current npm audit reports 12 moderate findings in the existing lint-tool chain,
-through minimatch. npm proposes breaking/downgrade changes rather than a safe
-patch. No forced audit fix is applied as part of the portfolio foundation.
+The Phase 6 production dependency audit reports no advisories. Tooling dependencies
+are reviewed separately; no forced breaking dependency changes are applied.

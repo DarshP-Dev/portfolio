@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && node scripts/build.mjs",
@@ -12,8 +15,12 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "generate:intro": "node scripts/generate-intro.mjs",
-    "format": "prettier --write src server api scripts tests *.ts *.json index.html README.md CONTENT_TODO.md CONTACT_SETUP.md",
-    "format:check": "prettier --check src server api scripts tests *.ts *.json index.html README.md CONTENT_TODO.md CONTACT_SETUP.md"
+    "generate:media": "node scripts/generate-media.mjs",
+    "check:build": "node scripts/check-built-site.mjs",
+    "check:publication": "node scripts/check-publication.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "format": "prettier --write src server api scripts tests *.ts *.json index.html README.md CONTENT_TODO.md CONTACT_SETUP.md DEPLOYMENT_READINESS.md QUALITY_REVIEW.md",
+    "format:check": "prettier --check src server api scripts tests *.ts *.json index.html README.md CONTENT_TODO.md CONTACT_SETUP.md DEPLOYMENT_READINESS.md QUALITY_REVIEW.md"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",

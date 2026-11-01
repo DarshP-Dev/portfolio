@@ -23,7 +23,7 @@ export function SiteFooter() {
       <Link
         to="/#home"
         className="brand"
-        aria-label="Darsh Patel — back to top"
+        aria-label="DP. — Darsh Patel, back to top"
       >
         DP<span>.</span>
       </Link>
