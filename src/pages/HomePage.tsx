@@ -3,6 +3,7 @@ import { projects, visibleProjects } from '../content/projects'
 import { site } from '../content/site'
 import { skillCategories } from '../content/skills'
 import { timeline } from '../content/timeline'
+import { biography } from '../content/about'
 import { Section } from '../components/layout/Section'
 import { HeroProjects } from '../components/home/HeroProjects'
 import { AccordionGallery } from '../components/home/AccordionGallery'
@@ -38,14 +39,14 @@ export function HomePage() {
             <Link to="/#projects" className="action-link">
               View Projects <span aria-hidden="true">↗</span>
             </Link>
-            {site.resume ? (
-              <a href={site.resume} download className="text-link">
+            {site.resume && (
+              <a
+                href={site.resume}
+                download="Darsh_Patel_Resume.pdf"
+                className="text-link"
+              >
                 Resume <span aria-hidden="true">↓</span>
               </a>
-            ) : (
-              <span className="pending-action">
-                Resume <span className="pending-label">PDF pending</span>
-              </span>
             )}
           </div>
         </div>
@@ -109,11 +110,14 @@ export function HomePage() {
       >
         <div className="about-layout grid gap-12 lg:grid-cols-2">
           <div className="prose">
-            <p className="lead-copy">{site.description}</p>
-            <p className="content-note">
-              A more personal biography will be added after review. Program
-              details, dates, and experience will come from a verified resume.
-            </p>
+            {biography.map((paragraph, index) => (
+              <p
+                key={paragraph}
+                className={index === 0 ? 'lead-copy' : undefined}
+              >
+                {paragraph}
+              </p>
+            ))}
             <Link to="/#contact" className="text-link">
               Contact Me <span aria-hidden="true">↗</span>
             </Link>
@@ -131,8 +135,8 @@ export function HomePage() {
         title="The tools behind the work."
       >
         <p className="section-intro">
-          A categorized foundation for the skills list. Technologies will be
-          added once confirmed against actual project work.
+          Technologies I’ve worked with across personal projects, hackathons,
+          and hands-on development.
         </p>
         <SkillsConstellation categories={skillCategories} />
       </Section>

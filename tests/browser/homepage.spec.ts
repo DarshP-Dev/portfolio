@@ -146,6 +146,9 @@ test('profile and skills interactions remain modest and the semantic grid stays 
   await expect(
     page.locator('.skills-grid').getByRole('heading', { name: 'Languages' }),
   ).toBeVisible()
+  await page.locator('.skills-constellation').scrollIntoViewIfNeeded()
+  // Audit the settled entrance state rather than a partially transparent frame.
+  await expect(page.locator('.skills-constellation')).toHaveCSS('opacity', '1')
   await page.screenshot({ path: '.cache/phase3/skills-desktop.png' })
   expect(
     (
@@ -175,11 +178,34 @@ test('timeline disclosure resizes the live line, tracks both scroll directions, 
     root.evaluate((el) =>
       parseFloat(el.style.getPropertyValue('--journey-length')),
     )
+  const initiallyOpen = page.locator('.timeline-details[open] summary')
+  await initiallyOpen.focus()
+  await page.keyboard.press('Enter')
+  await expect(page.locator('.timeline-details[open]')).toHaveCount(0)
+  // Allow ResizeObserver to update after closing the initially expanded entry.
+  await expect
+    .poll(
+      async () =>
+        await root.evaluate(
+          (el) =>
+            parseFloat(el.style.getPropertyValue('--journey-length')) ===
+            (el.lastElementChild as HTMLElement).offsetTop,
+        ),
+    )
+    .toBe(true)
   const initial = await length()
-  const summary = page.getByText('What’s being prepared', { exact: false })
+  const milestone = page.locator('[data-milestone="middlefield-collegiate"]')
+  const summary = milestone.locator('summary')
   await summary.focus()
   await page.keyboard.press('Enter')
-  await expect(page.locator('.timeline-details')).toHaveAttribute('open', '')
+  await expect(milestone.locator('.timeline-details')).toHaveAttribute(
+    'open',
+    '',
+  )
+  await expect(page.locator('.timeline-details[open]')).toHaveCount(1)
+  await expect(
+    milestone.getByText('Graduated with a 93.5% average.'),
+  ).toBeVisible()
   await expect.poll(length).toBeGreaterThan(initial + 80)
   expect(
     await root.evaluate(
@@ -189,6 +215,9 @@ test('timeline disclosure resizes the live line, tracks both scroll directions, 
     ),
   ).toBe(true)
   await page.screenshot({ path: '.cache/phase3/journey-desktop.png' })
+  await page.evaluate(() =>
+    document.querySelector('#experience')!.scrollIntoView(),
+  )
   await page.evaluate(() => scrollBy(0, 250))
   const progress = await root.evaluate((el) =>
     parseFloat(el.style.getPropertyValue('--journey-progress')),
@@ -211,6 +240,59 @@ test('timeline disclosure resizes the live line, tracks both scroll directions, 
       ),
     )
     .toBe(true)
+})
+
+test('verified timeline content expands by keyboard and links each hackathon to its case study', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('/#experience')
+  const root = page.locator('.editorial-timeline')
+  await expect(root.locator('.timeline-milestone h3')).toHaveText([
+    'Argus',
+    'Bluff House',
+    'Co-Founder',
+    'DeenStudio',
+    'AutoCAD Designer',
+    'Western University',
+    'Campaign Assistant — Volunteer',
+    'Middlefield Collegiate Institute',
+    'What’s Next?',
+  ])
+  await expect(root.locator('.timeline-year')).toHaveCount(8)
+  await expect(
+    root.getByText('June 2029 (expected)', { exact: false }),
+  ).toBeVisible()
+  const school = root.locator('[data-milestone="middlefield-collegiate"]')
+  await expect(school.getByText('Graduated with a 93.5% average.')).toBeHidden()
+  await school.locator('summary').focus()
+  await page.keyboard.press('Enter')
+  await expect(
+    school.getByText('Graduated with a 93.5% average.'),
+  ).toBeVisible()
+  await expect(root.locator('.timeline-details[open]')).toHaveCount(1)
+  await page.screenshot({ path: '.cache/phase3/journey-mobile.png' })
+  await expect(root.locator('.timeline-next')).toContainText(
+    'beginning May 2027',
+  )
+  for (const slug of ['argus', 'bluffhouse', 'deenstudio']) {
+    const link = root.locator(`a[href="/projects/${slug}"]`)
+    await link.focus()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(new RegExp(`/projects/${slug}$`))
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await page.goBack()
+    await expect(link).toBeFocused()
+  }
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .include('#experience')
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+        .analyze()
+    ).violations,
+  ).toEqual([])
 })
 
 test('natural-height desktop stacking leaves the bottom of long sections reachable and releases for keyboard focus', async ({
@@ -295,10 +377,10 @@ test('homepage HTML offers gallery links, a readable skills grid, and native dis
     5,
   )
   await expect(page.locator('.skills-grid').getByRole('heading')).toHaveCount(6)
-  await page.locator('.timeline-details summary').click()
-  await expect(
-    page.getByText('No unverified employment or graduation dates are listed.'),
-  ).toBeVisible()
+  await page
+    .locator('[data-milestone="middlefield-collegiate"] summary')
+    .click()
+  await expect(page.getByText('Graduated with a 93.5% average.')).toBeVisible()
   await page.locator('.featured-gallery').getByRole('link').first().click()
   await expect(page).toHaveURL(/\/projects\/personal-finance-tracker$/)
   await context.close()

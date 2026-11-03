@@ -60,7 +60,7 @@ test('real gallery supports selection, a modal, zoom, keyboard navigation and fo
   ).toBeFocused()
 })
 
-test('gallery recovers from a broken image and supports single/pending media states', async ({
+test('gallery recovers from a broken image and supports single and reviewed media states', async ({
   page,
 }) => {
   await page.route(/\/pokemon-style-rpg\/world(?:\.png|-\d+\.webp)$/, (route) =>
@@ -80,14 +80,13 @@ test('gallery recovers from a broken image and supports single/pending media sta
     page.getByRole('button', { name: 'Next media', exact: true }),
   ).toHaveCount(0)
   await page.goto('/projects/personal-finance-tracker')
-  await expect(
-    page.getByText(
-      'Original screenshots or a demo will be added after review.',
-    ),
-  ).toBeVisible()
-  await expect(page.getByRole('button', { name: 'Enlarge image' })).toHaveCount(
-    0,
+  await expect(page.locator('.case-media-stage img')).toHaveAttribute(
+    'src',
+    /01-dashboard.png$/,
   )
+  await expect(
+    page.getByRole('button', { name: 'Enlarge image' }),
+  ).toBeVisible()
 })
 
 test('team credits, export facts and genuine external links are explicit', async ({
@@ -148,12 +147,11 @@ test('architecture and deep dives work with keyboard and remain in natural page 
     page.locator('.architecture-descriptions > div').nth(1),
   ).toHaveAttribute('data-active', 'true')
   await expect(page.locator('.architecture-descriptions > div')).toHaveCount(3)
-  await page.locator('.case-deep-dives summary').focus()
-  await page.keyboard.press('Enter')
-  await expect(page.locator('.case-deep-dives details')).toHaveAttribute(
-    'open',
-    '',
-  )
+  for (const details of await page.locator('.case-deep-dives details').all()) {
+    await details.locator('summary').focus()
+    await page.keyboard.press('Enter')
+    await expect(details).toHaveAttribute('open', '')
+  }
   await expect(page.locator('.home-sections')).toHaveCount(0)
   await page.screenshot({ path: '.cache/phase4/architecture-desktop.png' })
 })

@@ -32,6 +32,17 @@ describe('publication configuration and crawler boundaries', () => {
     ).toBe(true)
     expect(includePublicAsset('resume/approved.pdf', [])).toBe(false)
     expect(includePublicAsset('resume/.gitkeep', [])).toBe(false)
+    expect(
+      includePublicAsset('videos/projects/bluffhouse/gameplay-demo.mp4', []),
+    ).toBe(false)
+    expect(
+      includePublicAsset('videos/projects/bluffhouse/gameplay-en.vtt', []),
+    ).toBe(false)
+    expect(
+      includePublicAsset('videos/projects/bluffhouse/gameplay-demo.mp4', [
+        'bluffhouse',
+      ]),
+    ).toBe(true)
   })
   it('allows an approved resume filename to be configured without exposing arbitrary paths or URLs', () => {
     expect(resumeAssetPath(undefined)).toBe('/resume/Darsh_Patel_Resume.pdf')

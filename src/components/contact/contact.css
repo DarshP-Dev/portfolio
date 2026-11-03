@@ -429,8 +429,7 @@
   min-width: 0;
   max-width: 100%;
 }
-.footer-links a,
-.footer-pending {
+.footer-links a {
   font-size: 0.72rem;
   min-height: 44px;
   display: inline-flex;
@@ -467,9 +466,6 @@
 .copy-email:disabled {
   color: #71717a;
   cursor: default;
-}
-.footer-pending {
-  color: #71717a;
 }
 .footer-copy-status {
   flex-basis: 100%;

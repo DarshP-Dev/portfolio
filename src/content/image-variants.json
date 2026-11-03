@@ -196,5 +196,577 @@
         "width": 913
       }
     ]
+  },
+  "/images/projects/bluffhouse/01-home-lounge.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/01-home-lounge-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/01-home-lounge-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/01-home-lounge-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/01-home-lounge-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/02-multiplayer-lobby.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/02-multiplayer-lobby-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/02-multiplayer-lobby-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/02-multiplayer-lobby-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/02-multiplayer-lobby-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/03-host-settings.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/03-host-settings-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/03-host-settings-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/03-host-settings-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/03-host-settings-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/04-secret-house-auction.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/04-secret-house-auction-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/04-secret-house-auction-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/04-secret-house-auction-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/04-secret-house-auction-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/05-auction-winner.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/05-auction-winner-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/05-auction-winner-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/05-auction-winner-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/05-auction-winner-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/06-custom-chip-wager.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/06-custom-chip-wager-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/06-custom-chip-wager-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/06-custom-chip-wager-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/06-custom-chip-wager-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/07-dealer-personal-bet.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/07-dealer-personal-bet-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/07-dealer-personal-bet-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/07-dealer-personal-bet-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/07-dealer-personal-bet-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/08-blackjack-hands.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/08-blackjack-hands-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/08-blackjack-hands-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/08-blackjack-hands-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/08-blackjack-hands-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/09-bluff-challenge.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/09-bluff-challenge-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/09-bluff-challenge-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/09-bluff-challenge-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/09-bluff-challenge-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/10-bluff-reveal.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/10-bluff-reveal-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/10-bluff-reveal-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/10-bluff-reveal-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/10-bluff-reveal-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/11-round-payouts.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/11-round-payouts-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/11-round-payouts-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/11-round-payouts-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/11-round-payouts-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/12-chaos-card-inventory.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/12-chaos-card-inventory-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/12-chaos-card-inventory-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/12-chaos-card-inventory-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/12-chaos-card-inventory-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/13-split-or-steal-choice.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/13-split-or-steal-choice-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/13-split-or-steal-choice-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/13-split-or-steal-choice-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/13-split-or-steal-choice-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/14-split-or-steal-result.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/14-split-or-steal-result-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/14-split-or-steal-result-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/14-split-or-steal-result-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/14-split-or-steal-result-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/15-connect-four-duel.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/15-connect-four-duel-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/15-connect-four-duel-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/15-connect-four-duel-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/15-connect-four-duel-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/16-shadow-private-cards.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/16-shadow-private-cards-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/16-shadow-private-cards-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/16-shadow-private-cards-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/16-shadow-private-cards-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/17-shadow-bluff-challenge.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/17-shadow-bluff-challenge-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/17-shadow-bluff-challenge-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/17-shadow-bluff-challenge-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/17-shadow-bluff-challenge-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/18-shadow-showdown.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/18-shadow-showdown-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/18-shadow-showdown-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/18-shadow-showdown-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/18-shadow-showdown-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/19-final-standings.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/19-final-standings-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/19-final-standings-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/19-final-standings-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/19-final-standings-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/bluffhouse/20-earned-achievements.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/bluffhouse/20-earned-achievements-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/bluffhouse/20-earned-achievements-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/bluffhouse/20-earned-achievements-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/bluffhouse/20-earned-achievements-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/personal-finance-tracker/01-dashboard.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/personal-finance-tracker/01-dashboard-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/01-dashboard-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/01-dashboard-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/01-dashboard-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/personal-finance-tracker/02-transactions.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/personal-finance-tracker/02-transactions-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/02-transactions-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/02-transactions-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/02-transactions-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/personal-finance-tracker/03-analytics.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/personal-finance-tracker/03-analytics-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/03-analytics-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/03-analytics-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/03-analytics-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/personal-finance-tracker/04-budgets.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/personal-finance-tracker/04-budgets-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/04-budgets-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/04-budgets-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/04-budgets-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/personal-finance-tracker/05-recurring.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/personal-finance-tracker/05-recurring-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/05-recurring-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/05-recurring-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/05-recurring-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/projects/personal-finance-tracker/06-investments.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/projects/personal-finance-tracker/06-investments-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/06-investments-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/06-investments-1600.webp",
+        "width": 1600
+      },
+      {
+        "src": "/images/projects/personal-finance-tracker/06-investments-1920.webp",
+        "width": 1920
+      }
+    ]
   }
 }

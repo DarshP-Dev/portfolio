@@ -282,7 +282,7 @@ for (const width of [1440, 820, 390, 320]) {
   })
 }
 
-test('footer links are approved, clipboard success is real, and portrait failure falls back without publishing a resume', async ({
+test('footer links are approved, clipboard success is real, and portrait failure falls back', async ({
   page,
   context,
   baseURL,
@@ -319,8 +319,10 @@ test('footer links are approved, clipboard success is real, and portrait failure
   })
   await footer.getByRole('button', { name: 'Copy email address' }).click()
   await expect(footer.getByRole('status')).toContainText('Copy unavailable')
-  await expect(page.locator('a[download]')).toHaveCount(0)
-  await expect(footer.getByText('Resume pending')).toBeVisible()
+  await expect(footer.getByRole('link', { name: 'Resume' })).toHaveAttribute(
+    'href',
+    '/resume/Darsh_Patel_Resume.pdf',
+  )
   await page.route('**/images/profile.webp', (route) => route.abort())
   await page.reload()
   await page.locator('#about').scrollIntoViewIfNeeded()
@@ -350,7 +352,9 @@ test('direct HTML without JavaScript offers real contact links and an inactive, 
   await expect(
     page.locator('.site-footer').getByRole('link', { name: 'LinkedIn' }),
   ).toBeVisible()
-  await expect(page.locator('a[download]')).toHaveCount(0)
+  await expect(
+    page.locator('a[download][href="/resume/Darsh_Patel_Resume.pdf"]'),
+  ).toHaveCount(2)
   await expect(
     page.getByRole('button', { name: 'Copy email address' }),
   ).toBeDisabled()

@@ -64,7 +64,7 @@ export function SkillsConstellation({
                 onFocus={() => setActive(index)}
                 onBlur={() => setActive(null)}
               >
-                {category.name === 'AI / Computer Vision'
+                {category.name === 'AI & Computer Vision'
                   ? 'AI / CV'
                   : category.name}
               </button>

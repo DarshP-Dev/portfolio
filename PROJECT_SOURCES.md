@@ -58,6 +58,12 @@ complete export, local-agent execution and performance testing were not run.
 
 ## Media provenance
 
+Bluff House media has since been selected from the existing authentic local
+capture at the pinned revision above. See `BLUFF_HOUSE_MEDIA.md` and
+`docs/media/bluffhouse.json` for five screenshot sources/hashes, the unchanged
+narrated video, subtitle conversion, review limits and pending artwork permission.
+The project remains draft; the external repository and originals are unchanged.
+
 All images were visually inspected. Originals are retained for the full-size
 viewer. JPEG previews reduce homepage transfer size without replacing originals.
 

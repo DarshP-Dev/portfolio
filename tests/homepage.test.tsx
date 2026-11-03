@@ -5,26 +5,65 @@ import { JourneyTimeline } from '../src/components/home/JourneyTimeline'
 import { SkillsConstellation } from '../src/components/home/SkillsConstellation'
 import { AccordionGallery } from '../src/components/home/AccordionGallery'
 import { projects } from '../src/content/projects'
-import { timeline } from '../src/content/timeline'
+import { timeline, timelineDate } from '../src/content/timeline'
 import { skillCategories } from '../src/content/skills'
+import { biography } from '../src/content/about'
 
 describe('homepage content boundaries and fallbacks', () => {
-  it('keeps unverified skills and employment out of the review build', () => {
-    expect(timeline).toEqual([])
+  it('renders eight approved milestones with one mechanical design experience and no invented claims', () => {
+    expect(timeline).toHaveLength(8)
+    expect(timeline.map((entry) => entry.startDate)).toEqual(
+      timeline
+        .map((entry) => entry.startDate)
+        .sort()
+        .reverse(),
+    )
+    expect(new Set(timeline.map((entry) => entry.id)).size).toBe(8)
     expect(
-      skillCategories.every((category) => !category.technologies.length),
-    ).toBe(true)
+      timeline.filter((entry) => entry.organization === 'DH Precision'),
+    ).toHaveLength(1)
+    expect(
+      timeline
+        .filter((entry) => entry.kind === 'hackathon')
+        .map((entry) => [entry.projectId, entry.startDate]),
+    ).toEqual([
+      ['argus', '2026-10'],
+      ['bluffhouse', '2026-10'],
+      ['deenstudio', '2026-05'],
+    ])
     const html = renderToStaticMarkup(
       <MemoryRouter>
         <JourneyTimeline entries={timeline} />
         <SkillsConstellation categories={skillCategories} />
       </MemoryRouter>,
     )
-    expect(html).toContain('Timeline in preparation')
-    expect(html).toContain('Verified skills pending')
+    expect(html).not.toContain('Timeline in preparation')
+    expect(html).not.toContain('Verified skills pending')
+    expect(html).toContain('June 2029 (expected)')
+    expect(html).toContain('93.5%')
+    expect(html).toContain('Munadir')
+    expect(html).toContain('May 2027')
+    expect(html.match(/timeline-year/g)).toHaveLength(8)
+    expect(html).toContain('href="/projects/argus"')
+    expect(html).toContain('href="/projects/bluffhouse"')
+    expect(html).toContain('href="/projects/deenstudio"')
     expect(html).not.toContain('Student Works')
-    expect(html).not.toContain('Online')
-    expect(html).not.toContain('timeline-year')
+    expect(html).not.toContain('Independent Contract')
+    expect(html).not.toMatch(/GPA|winner|award/i)
+  })
+  it('uses approved biography and readable categorized skills without proficiency scores', () => {
+    expect(biography).toHaveLength(3)
+    expect(biography.join(' ')).toContain('Western University')
+    expect(skillCategories).toHaveLength(6)
+    const names = skillCategories.flatMap((category) =>
+      category.technologies.map((tech) => tech.name),
+    )
+    expect(names.length).toBeGreaterThan(30)
+    expect(new Set(names).size).toBe(names.length)
+    expect(names).toContain('Onshape')
+    expect(names).toContain('MediaPipe')
+    expect(timelineDate('2026-10')).toBe('October 2026')
+    expect(timelineDate('Present')).toBe('Present')
   })
   it('renders provided milestone detail groups, dates, and real media without requiring JavaScript', () => {
     const html = renderToStaticMarkup(
@@ -97,7 +136,7 @@ describe('homepage content boundaries and fallbacks', () => {
     ).not.toContain('picsum')
     const html = renderToStaticMarkup(
       <MemoryRouter>
-        <AccordionGallery projects={[projects[0]]} />
+        <AccordionGallery projects={[{ ...projects[0], media: [] }]} />
       </MemoryRouter>,
     )
     expect(html.match(/<li>/g)).toHaveLength(1)

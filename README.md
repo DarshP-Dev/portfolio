@@ -59,8 +59,8 @@ Canonical/OG tags use the configured origin, with a distinct share card for each
 project. The build generates the matching robots file and sitemap; review sitemaps
 are empty. Case studies remain development drafts until final content, media and
 ownership review is complete.
-The approved GitHub, LinkedIn and public email are active. Resume downloads stay
-pending until the approved PDF is added at the documented path and rebuilt.
+The approved GitHub, LinkedIn, public email and resume downloads are active.
+Hero, Ctrl+K and Footer download `/resume/Darsh_Patel_Resume.pdf`.
 `published` records fail validation if required content/media is missing or TODOs
 remain. This check does not replace owner review of factual accuracy.
 
@@ -116,21 +116,25 @@ are build-only dependencies; normal builds use the checked-in generated paths.
   owner's portrait and makes no availability claim.
 - The skills map highlights category connections; the complete semantic grid
   follows it. `SkillTechnology` supports approved local logo assets and readable
-  names. Empty categories remain pending; draft technologies are not proficiency
-  claims. The constellation is replaced by the grid on narrow/reduced layouts.
+  names. The six approved categories are populated from the approved resume;
+  the full text grid accompanies the 18-item constellation. The constellation
+  is replaced by the grid on narrow/reduced layouts.
 - `JourneyTimeline` accepts verified dates, optional years, detail paragraphs and
   real preview images. Native named disclosures allow one entry open at a time,
   including without JavaScript. ResizeObserver keeps the progress line attached
-  after disclosures resize. With no verified entries, only a pending milestone
-  and the approved “What’s Next?” closing appear.
+  after disclosures resize. Eight verified milestones are sorted by start month;
+  “What’s Next?” highlights co-op availability beginning May 2027. Hackathon links
+  and existing small previews follow project visibility so draft routes/assets
+  cannot leak into public builds. DH Precision appears once.
 - Desktop section wrappers use natural heights and CSS sticky positioning. Tall
   sections scroll fully before their trailing edge sticks; the next section
   overlays as the previous recedes to 0.98 scale. Focus releases stacking so links
   and disclosures stay reachable. Tablet, touch, reduced motion and case studies
   use normal flow. No wheel/touch interception or synthetic scrolling is used.
 
-The approved intro choreography is unchanged. Real screenshots, the portrait,
-skills/logos and resume dates are still required for final visual/content review.
+The approved intro choreography is unchanged. About Me, categorized skills and
+timeline content are approved. Real screenshots, the portrait and optional skill
+logos still need final visual/content review.
 No email credentials are needed until Phase 5, and nothing has been deployed.
 
 ## Phase 4 review
@@ -191,10 +195,10 @@ and the deliberate delivery test required before claiming Gmail delivery works.
 
 The footer displays the approved email with a working Copy Email control plus
 real GitHub/LinkedIn links. The ProfileCard uses the labeled WebP monogram at
-`public/images/profile.webp`. No final portrait or resume is published. Resume
-links activate after an approved PDF is added at
-`public/resume/Darsh_Patel_Resume.pdf` (or the approved filename configured through
-`VITE_RESUME_PATH`) and the site is rebuilt.
+`public/images/profile.webp`. The final portrait is still pending. The approved
+resume is at `public/resume/Darsh_Patel_Resume.pdf`, matching the default and
+example `VITE_RESUME_PATH`. The build copies only the configured PDF, excluding
+the Word source and unrelated resumes. Rebuild/restart Vite after replacing it.
 
 ## Phase 6 review
 

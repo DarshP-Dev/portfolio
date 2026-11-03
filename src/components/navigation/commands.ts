@@ -7,6 +7,7 @@ export interface CommandAction {
   description: string
   group: 'Section' | 'Project' | 'Action'
   href: string
+  download?: string
   keywords?: string
 }
 
@@ -45,9 +46,12 @@ export function buildCommands(includeDrafts = false): CommandAction[] {
         id,
         label,
         href,
+        ...(id === 'resume' ? { download: 'Darsh_Patel_Resume.pdf' } : {}),
         group: 'Action',
         description:
-          id === 'resume' ? 'Open the verified resume PDF' : `Open ${label}`,
+          id === 'resume'
+            ? 'Download the approved resume PDF'
+            : `Open ${label}`,
       })
   }
   return [...sections, ...work, ...actions]

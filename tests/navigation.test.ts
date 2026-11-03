@@ -6,6 +6,23 @@ import {
 import { shouldPlayIntro } from '../src/components/intro/session'
 
 describe('command index', () => {
+  it('includes the available PDF as a download action rather than an SPA route', async () => {
+    vi.stubGlobal('__APPROVED_RESUME_URL__', '/resume/Darsh_Patel_Resume.pdf')
+    vi.resetModules()
+    try {
+      const { buildCommands: availableCommands } =
+        await import('../src/components/navigation/commands')
+      expect(
+        availableCommands().find((action) => action.id === 'resume'),
+      ).toMatchObject({
+        href: '/resume/Darsh_Patel_Resume.pdf',
+        download: 'Darsh_Patel_Resume.pdf',
+      })
+    } finally {
+      vi.unstubAllGlobals()
+      vi.resetModules()
+    }
+  })
   it('excludes drafts and unavailable owner actions from the public index', () => {
     const actions = buildCommands()
     expect(actions.filter((action) => action.group === 'Section')).toHaveLength(

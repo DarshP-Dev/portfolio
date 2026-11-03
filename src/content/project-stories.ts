@@ -16,7 +16,7 @@ export const projectStories: Partial<Record<ProjectId, Partial<Project>>> = {
   'personal-finance-tracker': {
     tagline: 'A full-stack workspace for everyday financial records.',
     summary:
-      'A Next.js interface and Spring Boot API bring transactions, budgets, recurring schedules and investment records into one application. The implementation separates recorded activity from forecasts and keeps data ownership on the server.',
+      'A Next.js interface and Spring Boot API bring transactions, budgets, recurring schedules and investment records into one application. The implementation separates recorded activity from forecasts and keeps data ownership on the server. All financial information shown in the screenshots and walkthrough is synthetic demonstration data.',
     projectType: 'Full-stack web application',
     technologies: [
       'Next.js',
@@ -32,6 +32,86 @@ export const projectStories: Partial<Record<ProjectId, Partial<Project>>> = {
         label: 'View GitHub repository',
         kind: 'github',
         url: repo('finance-tracker'),
+      },
+    ],
+    media: [
+      {
+        type: 'image',
+        src: '/images/projects/personal-finance-tracker/01-dashboard.png',
+        width: 1920,
+        height: 1080,
+        altOrCaption:
+          'Dashboard with synthetic income, expenses, balance, cash-flow chart and recent account activity.',
+        caption:
+          'Dashboard — all financial data belongs to the fictional Alex Morgan demonstration account. Year-to-date summaries and charts use synthetic records.',
+      },
+      {
+        type: 'image',
+        src: '/images/projects/personal-finance-tracker/02-transactions.png',
+        width: 1920,
+        height: 1080,
+        altOrCaption:
+          'Transaction entry form, filters and synthetic income and expense records for November 2, 2026.',
+        caption:
+          'Implemented transaction management, filtered to November 2 and amounts of $50 or more to show both income and expenses.',
+      },
+      {
+        type: 'image',
+        src: '/images/projects/personal-finance-tracker/03-analytics.png',
+        width: 1920,
+        height: 1080,
+        altOrCaption:
+          'Spending category charts, monthly cash flow and a six-month synthetic expense trend.',
+        caption:
+          'Real analytics calculated from fictional June–November records; the selected period is This Month.',
+      },
+      {
+        type: 'image',
+        src: '/images/projects/personal-finance-tracker/04-budgets.png',
+        width: 1920,
+        height: 1080,
+        altOrCaption:
+          'Five category budgets with recorded spending, remaining amounts and progress indicators.',
+        caption:
+          'November category budgets include the expense saved during the walkthrough.',
+      },
+      {
+        type: 'image',
+        src: '/images/projects/personal-finance-tracker/05-recurring.png',
+        width: 1920,
+        height: 1080,
+        altOrCaption:
+          'Two monthly recurring expense schedules showing their December 5 next occurrence dates.',
+        caption:
+          'Creating a schedule already records its first occurrence; the displayed dates are subsequent occurrences.',
+      },
+      {
+        type: 'image',
+        src: '/images/projects/personal-finance-tracker/06-investments.png',
+        width: 1920,
+        height: 1080,
+        altOrCaption:
+          'Two fictional investment holdings with purchase costs and explicitly unavailable market quotes.',
+        caption:
+          'Sample holdings demonstrate recorded cost basis only. Live market prices and returns are unavailable.',
+      },
+      {
+        type: 'video',
+        src: '/videos/projects/personal-finance-tracker/walkthrough-demo.mp4',
+        poster:
+          '/images/projects/personal-finance-tracker/walkthrough-poster.webp',
+        width: 1920,
+        height: 1080,
+        hasAudio: false,
+        altOrCaption:
+          '67-second silent walkthrough of the real Finance Tracker application using synthetic demonstration data, including saving a fictional expense.',
+        caption:
+          '67-second application walkthrough with descriptive captions. All financial data is synthetic. Live market quotes and Gemini are disabled; insights are deterministic. The closing Investments segment is a separate authentic recording of the loaded page.',
+        captions: {
+          src: '/videos/projects/personal-finance-tracker/walkthrough-en.vtt',
+          language: 'en',
+          label: 'English descriptions',
+        },
       },
     ],
     challenge:
@@ -98,20 +178,23 @@ export const projectStories: Partial<Record<ProjectId, Partial<Project>>> = {
     ],
     deepDives: [
       {
+        title: 'About the demonstration',
+        body: 'The approved media shows a fictional account in an isolated local runtime. Investment purchase costs are sample records; live quotes, market values and returns are unavailable. Financial insights are deterministic rather than Gemini-generated. Creating a recurring schedule immediately records its first occurrence; the recurring view shows subsequent occurrence dates. Dashboard, Analytics and Transactions may use different visible reporting periods.',
+      },
+      {
         title: 'Recurring records versus forecasts',
         body: 'A generated occurrence becomes an ordinary transaction. An upcoming projection stays a forecast until generation records it. The repository documents both an in-process scheduler and an authenticated external trigger for environments that may stop between requests.',
       },
     ],
     outcomes: [
       'The inspected source contains authenticated financial APIs, recurring generation and explicit migration handling.',
-      'Repository release notes record prior checks; those application suites and live financial workflows were not rerun during this portfolio phase.',
+      'Repository release notes record prior checks; the disposable demonstration additionally verified real application workflows with synthetic data. The backend application test suites were not rerun for media capture.',
     ],
     nextSteps: [
-      'Add redacted dashboard media and confirm the exact personal contribution.',
+      'Confirm the exact personal contribution and owner-approved outcomes.',
       'Review public copy and any live-demo URL before publication.',
     ],
     pending: [
-      'Supply redacted screenshots or a privacy-safe demo',
       'Confirm role, contribution boundaries and owner-approved outcomes',
       'Verify any public deployment URL',
     ],
@@ -255,6 +338,75 @@ export const projectStories: Partial<Record<ProjectId, Partial<Project>>> = {
     ],
   },
   bluffhouse: {
+    media: [
+      {
+        type: 'image',
+        src: '/images/projects/bluffhouse/01-home-lounge.png',
+        width: 1920,
+        height: 1080,
+        altOrCaption:
+          'Bluff House home lounge with illustrated casino, Quick Play, Host Room and Join Room controls, and a How to Play panel.',
+        caption:
+          'Welcome to the lounge — the starting point for a game with fictional chips.',
+      },
+      {
+        type: 'image',
+        src: '/images/projects/bluffhouse/02-multiplayer-lobby.png',
+        altOrCaption:
+          'Four demo players ready in a private Bluff House lobby, with avatar selection and Party mode settings.',
+        width: 1920,
+        height: 1080,
+        caption:
+          'Private lobby — four isolated browser sessions, demo names and fictional chips.',
+      },
+      {
+        type: 'image',
+        src: '/images/projects/bluffhouse/08-blackjack-hands.png',
+        altOrCaption:
+          'Blackjack table showing Alex, Blair and Casey’s hands, Drew as the player dealer, and the dealer’s hidden hole card.',
+        width: 1920,
+        height: 1080,
+        caption:
+          'Blackjack table — player turns, committed chips and the hidden dealer card.',
+      },
+      {
+        type: 'image',
+        src: '/images/projects/bluffhouse/10-bluff-reveal.png',
+        altOrCaption:
+          'Call My Bluff reveal: Blair draws a seven and busts; Alex receives the recorded 200-chip fictional pot.',
+        width: 1920,
+        height: 1080,
+        caption:
+          'Call My Bluff — the actual challenge reveal and fictional-chip settlement.',
+      },
+      {
+        type: 'image',
+        src: '/images/projects/bluffhouse/18-shadow-showdown.png',
+        altOrCaption:
+          'Shadow Blackjack showdown revealing Alex’s actual total of 13, accepted declaration of 21 and 100-chip fictional Vault award.',
+        width: 1920,
+        height: 1080,
+        caption:
+          'Shadow Blackjack — cards revealed after the unchallenged declaration is accepted.',
+      },
+      {
+        type: 'video',
+        src: '/videos/projects/bluffhouse/gameplay-demo.mp4',
+        poster: '/images/projects/bluffhouse/gameplay-poster.webp',
+        altOrCaption:
+          'Two-minute narrated Bluff House gameplay demo: lobby, auction, Blackjack, bluff challenges, Party games and Shadow Blackjack. English captions available.',
+        width: 1920,
+        height: 1080,
+        hasAudio: true,
+        captions: {
+          src: '/videos/projects/bluffhouse/gameplay-en.vtt',
+          language: 'en',
+          label: 'English',
+        },
+        caption:
+          'Narrated local gameplay · 2 minutes · English captions. Four automated browser sessions use fictional, nonredeemable chips. The edit omits waits, retimes some scenes and shortens the eight-second Shadow challenge window; it does not demonstrate physical cross-device play.',
+      },
+    ],
     role: 'Development and iteration',
     contribution: {
       summary: 'Darsh drove much of the game’s development and iteration.',
@@ -354,11 +506,11 @@ export const projectStories: Partial<Record<ProjectId, Partial<Project>>> = {
       'Room state is held in memory. Restart recovery, durable accounts and hosted reliability are not claimed; no live deployment link has been verified.',
     ],
     nextSteps: [
-      'Add approved gameplay screenshots and confirm ownership and contributions.',
+      'Review the selected gameplay media, captions and artwork permissions before publication.',
       'Review hands-on and hosted verification separately from repository test documentation.',
     ],
     pending: [
-      'Supply original gameplay media',
+      'Owner visual review of selected gameplay media, narration and artwork permissions',
       'Review owner-approved contribution wording and outcomes',
       'Verify hands-on acceptance and any deployment URL',
     ],

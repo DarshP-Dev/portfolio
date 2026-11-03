@@ -1,0 +1,182 @@
+{
+  "captureRevision": "f7f168509759de099f2b862e3a6142a5f89855b0",
+  "selection": [
+    {
+      "source": "demo/stills/04-avatars-ready.png",
+      "output": "public/images/projects/bluffhouse/02-multiplayer-lobby.png",
+      "sha256": "92acdde8a88217334889b1f19950e0dcd1c69b20ecc808e96f79af49488ac0f5"
+    },
+    {
+      "source": "demo/stills/10-blackjack-table.png",
+      "output": "public/images/projects/bluffhouse/08-blackjack-hands.png",
+      "sha256": "2861699f025dac4e3263d931b02598d2b3a252eda6f02bfba3757026db3d12d8"
+    },
+    {
+      "source": "demo/stills/12-call-my-bluff-accepted.png",
+      "output": "public/images/projects/bluffhouse/10-bluff-reveal.png",
+      "sha256": "2eac83fbb6eb460e6862d481abe90e38cc9113fbc085ca6e71d98e0d10bdd744"
+    },
+    {
+      "source": "demo/stills/18-connect-four-duel.png",
+      "output": "public/images/projects/bluffhouse/15-connect-four-duel.png",
+      "sha256": "690c5b9d5585e99dc523fff702ddefb599c8e3e01db7fc4a7cfaabdbc4d75849"
+    },
+    {
+      "source": "demo/stills/26-shadow-showdown.png",
+      "output": "public/images/projects/bluffhouse/18-shadow-showdown.png",
+      "sha256": "de24f1512705a9c16d6dc6b7b0cacda6c7ddc15611e0dae863c5e8edee6bd284"
+    },
+    {
+      "source": "demo/bluffhouse-demo-voiced.mp4",
+      "output": "public/videos/projects/bluffhouse/gameplay-demo.mp4",
+      "sha256": "363c94af1194720a39dad3e6469e94f71bbcb6bd390a94a1376fe6974dbd2095"
+    },
+    {
+      "source": "demo/bluffhouse-demo-aligned.srt",
+      "output": "public/videos/projects/bluffhouse/gameplay-en.vtt",
+      "sourceSha256": "156a6db5427155ea435e0b0a7062c25014f75ed81f3b993c6eab0fcd6f1d620c"
+    }
+  ],
+  "screenshotCollection": [
+    {
+      "source": "demo/stills/homepage.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "01-home-lounge.png",
+      "output": "public/images/projects/bluffhouse/01-home-lounge.png",
+      "sha256": "40f3ea140fb95f2df95ad4735fe9614a22b313490a640c3195f21c078af3199a"
+    },
+    {
+      "source": "demo/stills/04-avatars-ready.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "02-multiplayer-lobby.png",
+      "output": "public/images/projects/bluffhouse/02-multiplayer-lobby.png",
+      "sha256": "92acdde8a88217334889b1f19950e0dcd1c69b20ecc808e96f79af49488ac0f5"
+    },
+    {
+      "source": "demo/stills/03-host-options.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "03-host-settings.png",
+      "output": "public/images/projects/bluffhouse/03-host-settings.png",
+      "sha256": "393ceb8b50542290fdd417d74883edc169a7bc89fbdedf335d70a8c30891cc58"
+    },
+    {
+      "source": "demo/stills/05-auction-sealed.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "04-secret-house-auction.png",
+      "output": "public/images/projects/bluffhouse/04-secret-house-auction.png",
+      "sha256": "97016a7afa146b40c859e60d320ba6132d7a17ccf4aec7b26933ac5c1694e0c9"
+    },
+    {
+      "source": "demo/stills/07-house-winner.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "05-auction-winner.png",
+      "output": "public/images/projects/bluffhouse/05-auction-winner.png",
+      "sha256": "07883fbbd55d3b3be4c68dc6c7a4106c744c0ef30c074af6a756c57091e4e818"
+    },
+    {
+      "source": "demo/stills/08-chip-builder.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "06-custom-chip-wager.png",
+      "output": "public/images/projects/bluffhouse/06-custom-chip-wager.png",
+      "sha256": "b9acc94ae7cfd04c55a6e39256288ed80aacba358b2951899dfb555cbeadf440"
+    },
+    {
+      "source": "demo/stills/09-house-personal-risk.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "07-dealer-personal-bet.png",
+      "output": "public/images/projects/bluffhouse/07-dealer-personal-bet.png",
+      "sha256": "757b27024e6e13e1e35f5935c8f66f8a13e71c1bee07cf0f7a91e0b523ed91a2"
+    },
+    {
+      "source": "demo/stills/10-blackjack-table.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "08-blackjack-hands.png",
+      "output": "public/images/projects/bluffhouse/08-blackjack-hands.png",
+      "sha256": "2861699f025dac4e3263d931b02598d2b3a252eda6f02bfba3757026db3d12d8"
+    },
+    {
+      "source": "demo/stills/11-call-my-bluff-offer.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "09-bluff-challenge.png",
+      "output": "public/images/projects/bluffhouse/09-bluff-challenge.png",
+      "sha256": "2a88bce78d0f49d1e2a3f28880074db528d1a39bbe4e1f3978a87691cd8a3ef1"
+    },
+    {
+      "source": "demo/stills/12-call-my-bluff-accepted.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "10-bluff-reveal.png",
+      "output": "public/images/projects/bluffhouse/10-bluff-reveal.png",
+      "sha256": "2eac83fbb6eb460e6862d481abe90e38cc9113fbc085ca6e71d98e0d10bdd744"
+    },
+    {
+      "source": "demo/stills/13-round-settlement.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "11-round-payouts.png",
+      "output": "public/images/projects/bluffhouse/11-round-payouts.png",
+      "sha256": "8d83108e99c26bdd488cff4674ab09797a23b56d5ed2b3b36b5ee0d3e233e217"
+    },
+    {
+      "source": "demo/stills/chaos-inventory.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "12-chaos-card-inventory.png",
+      "output": "public/images/projects/bluffhouse/12-chaos-card-inventory.png",
+      "sha256": "7bf53919413cba2537784555143b6771c3c81cc2c5fe1e46404fbd289acfc598"
+    },
+    {
+      "source": "demo/stills/15-split-or-steal-private.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "13-split-or-steal-choice.png",
+      "output": "public/images/projects/bluffhouse/13-split-or-steal-choice.png",
+      "sha256": "d27a5fcbde39170254de7f19a05d6abfa0f10a3ddbbb99f55ee2b446f79db88c"
+    },
+    {
+      "source": "demo/stills/16-split-or-steal-reveal.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "14-split-or-steal-result.png",
+      "output": "public/images/projects/bluffhouse/14-split-or-steal-result.png",
+      "sha256": "6c8397d27e4b0305cfb2678c14de2053b6568c14920ec61caa53000872441ba8"
+    },
+    {
+      "source": "demo/stills/18-connect-four-duel.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "15-connect-four-duel.png",
+      "output": "public/images/projects/bluffhouse/15-connect-four-duel.png",
+      "sha256": "690c5b9d5585e99dc523fff702ddefb599c8e3e01db7fc4a7cfaabdbc4d75849"
+    },
+    {
+      "source": "demo/stills/20-shadow-private-hand.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "16-shadow-private-cards.png",
+      "output": "public/images/projects/bluffhouse/16-shadow-private-cards.png",
+      "sha256": "ec3965f847d2f057469eba1d851b2f9ff5cd16e8d10eb60fcb3d9eb5abce27b5"
+    },
+    {
+      "source": "demo/stills/23-shadow-call-window.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "17-shadow-bluff-challenge.png",
+      "output": "public/images/projects/bluffhouse/17-shadow-bluff-challenge.png",
+      "sha256": "bb6549ac593efc37e7e22b3de2c8228c968595b5efd6277163903e3eed0f7b15"
+    },
+    {
+      "source": "demo/stills/26-shadow-showdown.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "18-shadow-showdown.png",
+      "output": "public/images/projects/bluffhouse/18-shadow-showdown.png",
+      "sha256": "de24f1512705a9c16d6dc6b7b0cacda6c7ddc15611e0dae863c5e8edee6bd284"
+    },
+    {
+      "source": "demo/stills/24-final-winner.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "19-final-standings.png",
+      "output": "public/images/projects/bluffhouse/19-final-standings.png",
+      "sha256": "1ec5917a6a8bda2bb3c2aec9e269f788d3dad49f143866f6d7b9c24991e266ca"
+    },
+    {
+      "source": "demo/stills/25-final-achievements.png",
+      "archive": "demo/bluffhouse-screenshots.zip",
+      "archiveFilename": "20-earned-achievements.png",
+      "output": "public/images/projects/bluffhouse/20-earned-achievements.png",
+      "sha256": "802510a42a7696c06097c84bddea2b8b380a00f7d3cc82c4cdbca107a331accf"
+    }
+  ]
+}

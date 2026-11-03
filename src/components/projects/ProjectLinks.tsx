@@ -12,7 +12,7 @@ export function ProjectLink({
   ...props
 }: Omit<LinkProps, 'to' | 'state'> & {
   project: Pick<Project, 'slug'>
-  source: 'hero' | 'gallery' | 'more' | 'card'
+  source: 'hero' | 'gallery' | 'more' | 'card' | 'timeline'
 }) {
   const location = useLocation()
   const focusKey = `${source}:${project.slug}`

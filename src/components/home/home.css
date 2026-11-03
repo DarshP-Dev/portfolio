@@ -417,6 +417,10 @@
   border-radius: 50%;
   background: var(--color-bg);
 }
+.timeline-milestone[data-kind='hackathon'] .timeline-node {
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
 .timeline-milestone[data-kind='experience'] .timeline-node,
 .timeline-next .timeline-node {
   background: #77776e;
@@ -494,6 +498,9 @@
   padding-bottom: 12px;
 }
 .timeline-next .text-link {
+  margin-top: 22px;
+}
+.timeline-case-study {
   margin-top: 22px;
 }
 .stack-section,

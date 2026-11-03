@@ -39,7 +39,14 @@ export function CommandPalette({ onClose }: { onClose: () => void }) {
   function activate(action: CommandAction) {
     dialog.current?.close()
     onClose()
-    if (action.href.startsWith('/')) {
+    if (action.download) {
+      const link = document.createElement('a')
+      link.href = action.href
+      link.download = action.download
+      document.body.append(link)
+      link.click()
+      link.remove()
+    } else if (action.href.startsWith('/')) {
       navigate(action.href)
       if (action.href === `${location.pathname}${location.hash}`)
         queueMicrotask(() => {

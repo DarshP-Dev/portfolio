@@ -118,7 +118,7 @@ describe('letter schema and receipt truth', () => {
     ])
       expect(receiptFromResponse(invalid)).toBeUndefined()
   })
-  it('uses the approved public links while keeping the unapproved resume inactive', () => {
+  it('uses the approved public links and omits a resume without a build availability define', () => {
     expect(site.email).toBe('darshpatel060106@gmail.com')
     expect(site.linkedin).toBe('https://www.linkedin.com/in/darshpatel-dev')
     expect(site.portrait).toEqual({

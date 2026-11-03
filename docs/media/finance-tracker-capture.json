@@ -1,0 +1,258 @@
+{
+  "status": "owner visually approved; integrated locally; project remains draft",
+  "sourceRevision": "04f335f3cbdb9371a1f8a85cd36c935c6c41c3ec",
+  "viewport": {
+    "width": 1920,
+    "height": 1080,
+    "deviceScaleFactor": 1
+  },
+  "images": [
+    {
+      "source": "public/images/projects/personal-finance-tracker/01-dashboard.png",
+      "sha256": "b51c9f4989900c22cde0a8fcd2dd76461e7efbd9c110f565a26695b8130525b1",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "alt": "Dashboard with synthetic income, expenses, balance, cash-flow chart and recent account activity.",
+      "caption": "Year-to-date overview of the fictional Alex Morgan account.",
+      "responsive": [
+        {
+          "path": "public/images/projects/personal-finance-tracker/01-dashboard-480.webp",
+          "width": 480,
+          "bytes": 8118
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/01-dashboard-960.webp",
+          "width": 960,
+          "bytes": 23020
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/01-dashboard-1600.webp",
+          "width": 1600,
+          "bytes": 53494
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/01-dashboard-1920.webp",
+          "width": 1920,
+          "bytes": 71406
+        }
+      ]
+    },
+    {
+      "source": "public/images/projects/personal-finance-tracker/02-transactions.png",
+      "sha256": "65a88b333fcd20d754a1ba083b9809a9c9b4bddd5d044f4a2178bb47f581a8e3",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "alt": "Transaction entry form, filters and synthetic income and expense records for November 2, 2026.",
+      "caption": "Implemented transaction management, filtered to November 2 and amounts of $50 or more to show both income and expenses.",
+      "responsive": [
+        {
+          "path": "public/images/projects/personal-finance-tracker/02-transactions-480.webp",
+          "width": 480,
+          "bytes": 6822
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/02-transactions-960.webp",
+          "width": 960,
+          "bytes": 19934
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/02-transactions-1600.webp",
+          "width": 1600,
+          "bytes": 45414
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/02-transactions-1920.webp",
+          "width": 1920,
+          "bytes": 58992
+        }
+      ]
+    },
+    {
+      "source": "public/images/projects/personal-finance-tracker/03-analytics.png",
+      "sha256": "c5ef42325a2041d0f8793e4c87a75fa281f0626bf8a8fb793dbbb27c04217851",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "alt": "Spending category charts, monthly cash flow and a six-month synthetic expense trend.",
+      "caption": "Real analytics calculated from fictional June–November records; the selected period is This Month.",
+      "responsive": [
+        {
+          "path": "public/images/projects/personal-finance-tracker/03-analytics-480.webp",
+          "width": 480,
+          "bytes": 9168
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/03-analytics-960.webp",
+          "width": 960,
+          "bytes": 26066
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/03-analytics-1600.webp",
+          "width": 1600,
+          "bytes": 59508
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/03-analytics-1920.webp",
+          "width": 1920,
+          "bytes": 78980
+        }
+      ]
+    },
+    {
+      "source": "public/images/projects/personal-finance-tracker/04-budgets.png",
+      "sha256": "38afa38df63284d6c21125aaffa434994764a85c1ff38bf523001ce790a2f9a6",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "alt": "Five category budgets with recorded spending, remaining amounts and progress indicators.",
+      "caption": "November category budgets include the expense saved during the walkthrough.",
+      "responsive": [
+        {
+          "path": "public/images/projects/personal-finance-tracker/04-budgets-480.webp",
+          "width": 480,
+          "bytes": 5656
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/04-budgets-960.webp",
+          "width": 960,
+          "bytes": 16480
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/04-budgets-1600.webp",
+          "width": 1600,
+          "bytes": 37574
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/04-budgets-1920.webp",
+          "width": 1920,
+          "bytes": 48718
+        }
+      ]
+    },
+    {
+      "source": "public/images/projects/personal-finance-tracker/05-recurring.png",
+      "sha256": "34ae27ba37131c5208f6a663dfdd5911bbe750386170b830532360b1b66b1b25",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "alt": "Two monthly recurring expense schedules showing their December 5 next occurrence dates.",
+      "caption": "Creating a schedule already records its first occurrence; the displayed dates are subsequent occurrences.",
+      "responsive": [
+        {
+          "path": "public/images/projects/personal-finance-tracker/05-recurring-480.webp",
+          "width": 480,
+          "bytes": 4794
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/05-recurring-960.webp",
+          "width": 960,
+          "bytes": 13872
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/05-recurring-1600.webp",
+          "width": 1600,
+          "bytes": 31868
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/05-recurring-1920.webp",
+          "width": 1920,
+          "bytes": 42056
+        }
+      ]
+    },
+    {
+      "source": "public/images/projects/personal-finance-tracker/06-investments.png",
+      "sha256": "a623fe9b786d8b8b5806551cd8285656d596e9b0f555e4ede0d623170cb2f6f4",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "alt": "Two fictional investment holdings with purchase costs and explicitly unavailable market quotes.",
+      "caption": "Sample holdings demonstrate recorded cost basis only. Live market prices and returns are unavailable.",
+      "responsive": [
+        {
+          "path": "public/images/projects/personal-finance-tracker/06-investments-480.webp",
+          "width": 480,
+          "bytes": 7140
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/06-investments-960.webp",
+          "width": 960,
+          "bytes": 21590
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/06-investments-1600.webp",
+          "width": 1600,
+          "bytes": 54200
+        },
+        {
+          "path": "public/images/projects/personal-finance-tracker/06-investments-1920.webp",
+          "width": 1920,
+          "bytes": 70988
+        }
+      ]
+    }
+  ],
+  "capturedAt": "2026-11-02T18:04:20.804Z",
+  "video": {
+    "path": "public/videos/projects/personal-finance-tracker/walkthrough-demo.mp4",
+    "width": 1920,
+    "height": 1080,
+    "duration": 67,
+    "captions": "public/videos/projects/personal-finance-tracker/walkthrough-en.vtt",
+    "error": null,
+    "bytes": 1948263,
+    "sha256": "2619022b040e6815749d32baeb103559f16df212235cb749fbcfdd3ebf1e576e",
+    "codec": "H.264 High / yuv420p",
+    "fps": 30,
+    "audio": false,
+    "poster": "public/images/projects/personal-finance-tracker/walkthrough-poster.webp",
+    "editorialChanges": "3-second disclosure title card; initial login/loading trimmed; first 54 seconds of continuous walkthrough plus a separate 10-second authentic loaded Investments closing take. No application frames were altered."
+  },
+  "verification": {
+    "browserErrors": [],
+    "captionTiming": true,
+    "videoSeekAndPlayback": true,
+    "reviewPageWidths": [
+      1920,
+      390
+    ],
+    "fullDecode": true,
+    "originalSourceFilesChecked": 253,
+    "originalSourceFilesChanged": 0,
+    "unitTestsPassed": 59,
+    "lint": "passed",
+    "productionBuild": "passed",
+    "publicDraftMediaExcluded": true
+  },
+  "integration": {
+    "featuredImage": "/images/projects/personal-finance-tracker/01-dashboard.png",
+    "galleryImages": 6,
+    "video": "/videos/projects/personal-finance-tracker/walkthrough-demo.mp4",
+    "layout": "Existing shared editorial MediaGallery",
+    "publicationStatus": "draft",
+    "ownerVisualApproval": true,
+    "verification": {
+      "desktopWidth": 1440,
+      "mobileWidth": 390,
+      "browserTestsPassed": 17,
+      "unitTestsPassed": 59,
+      "axeViolations": 0,
+      "captionsLoaded": 8,
+      "actualSeekSeconds": 62,
+      "lint": "passed",
+      "productionBuild": "passed",
+      "publicationChecks": "passed",
+      "publicDraftRouteAndMediaExcluded": true,
+      "approvedAssetHashesUnchanged": true,
+      "originalSourceFilesUnchanged": 253
+    }
+  }
+}

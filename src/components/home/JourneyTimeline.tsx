@@ -1,10 +1,14 @@
 import { useEffect, useId, useRef } from 'react'
 import { Link } from 'react-router'
-import type { TimelineEntry } from '../../content/timeline'
+import { timelineDate, type TimelineEntry } from '../../content/timeline'
+import { projects, visibleProjects } from '../../content/projects'
+import { site } from '../../content/site'
+import { ProjectLink } from '../projects/ProjectLinks'
 
 export function JourneyTimeline({ entries }: { entries: TimelineEntry[] }) {
   const root = useRef<HTMLDivElement>(null)
   const group = useId()
+  const availableProjects = visibleProjects(projects, site.includeDrafts)
   useEffect(() => {
     const element = root.current!
     const articles = Array.from(
@@ -66,48 +70,72 @@ export function JourneyTimeline({ entries }: { entries: TimelineEntry[] }) {
         <span />
         <i />
       </div>
-      {entries.map((entry, index) => (
-        <article
-          className="timeline-milestone"
-          data-kind={entry.kind}
-          key={entry.id}
-        >
-          <span className="timeline-node" aria-hidden="true" />
-          <span className="timeline-year" aria-hidden="true">
-            {entry.year ?? entry.startDate.match(/\b\d{4}\b/)?.[0]}
-          </span>
-          <p className="eyebrow">
-            {entry.kind} / {entry.startDate}
-            {entry.endDate ? ` — ${entry.endDate}` : ''}
-          </p>
-          <h3>{entry.title}</h3>
-          <p className="timeline-organization">{entry.organization}</p>
-          <p>{entry.summary}</p>
-          {entry.preview && (
-            <img
-              className="timeline-preview"
-              {...entry.preview}
-              loading="lazy"
-            />
-          )}
-          {!!entry.details?.length && (
-            <details
-              className="timeline-details"
-              name={group}
-              open={index === 0}
-            >
-              <summary>
-                Explore <span aria-hidden="true">+</span>
-              </summary>
-              <div>
-                {entry.details.map((detail) => (
-                  <p key={detail}>{detail}</p>
-                ))}
-              </div>
-            </details>
-          )}
-        </article>
-      ))}
+      {entries.map((entry, index) => {
+        const project = availableProjects.find(
+          (project) => project.id === entry.projectId,
+        )
+        const image = project?.media.find((media) => media.type === 'image')
+        const preview =
+          entry.preview ??
+          (image && {
+            src: image.thumbnailSrc ?? image.src,
+            alt: image.altOrCaption,
+            width: image.width,
+            height: image.height,
+          })
+        return (
+          <article
+            className="timeline-milestone"
+            data-kind={entry.kind}
+            data-milestone={entry.id}
+            key={entry.id}
+          >
+            <span className="timeline-node" aria-hidden="true" />
+            <span className="timeline-year" aria-hidden="true">
+              {entry.year ?? entry.startDate.match(/\b\d{4}\b/)?.[0]}
+            </span>
+            <p className="eyebrow">
+              {entry.kind} / {timelineDate(entry.startDate)}
+              {entry.endDate ? ` — ${timelineDate(entry.endDate)}` : ''}
+              {entry.expectedEnd ? ' (expected)' : ''}
+            </p>
+            <h3>{entry.title}</h3>
+            <p className="timeline-organization">{entry.organization}</p>
+            {entry.location && <p>{entry.location}</p>}
+            <p>{entry.summary}</p>
+            {preview && (
+              <img className="timeline-preview" {...preview} loading="lazy" />
+            )}
+            {!!entry.details?.length && (
+              <details
+                className="timeline-details"
+                name={group}
+                open={index === 0}
+              >
+                <summary aria-label={`Explore ${entry.title} details`}>
+                  Explore <span aria-hidden="true">+</span>
+                </summary>
+                <div>
+                  {entry.details.map((detail) => (
+                    <p key={detail}>{detail}</p>
+                  ))}
+                </div>
+              </details>
+            )}
+            {project && (
+              <ProjectLink
+                project={project}
+                source="timeline"
+                className="text-link timeline-case-study"
+              >
+                {project.title} case study
+                {project.status !== 'published' ? ' · Draft' : ''}{' '}
+                <span aria-hidden="true">↗</span>
+              </ProjectLink>
+            )}
+          </article>
+        )
+      })}
       {!entries.length && (
         <article className="timeline-milestone" data-kind="pending">
           <span className="timeline-node" aria-hidden="true" />
@@ -137,8 +165,9 @@ export function JourneyTimeline({ entries }: { entries: TimelineEntry[] }) {
         <p className="eyebrow">Looking ahead</p>
         <h3>What’s Next?</h3>
         <p>
-          Continuing to build thoughtful software and explore opportunities in
-          software engineering, internships, co-op, and collaboration.
+          Pursuing software engineering co-op opportunities beginning May 2027,
+          with an interest in full-stack systems, computer vision, and applied
+          AI.
         </p>
         <Link to="/#contact" className="text-link">
           Contact Me <span aria-hidden="true">↗</span>

@@ -48,8 +48,44 @@ const server = createServer(async (request, response) => {
     try {
       if ((await stat(file)).isDirectory()) file = resolve(file, 'index.html')
       const bytes = await readFile(file)
+      const video = ['.mp4', '.webm'].includes(extname(file))
+      if (video) response.setHeader('Accept-Ranges', 'bytes')
+      const range = request.method === 'GET' && request.headers.range
+      if (video && range) {
+        const match = /^bytes=(\d*)-(\d*)$/.exec(range)
+        let start = match?.[1] ? Number(match[1]) : 0
+        let end = match?.[2] ? Number(match[2]) : bytes.length - 1
+        if (match && !match[1] && match[2]) {
+          start = Math.max(0, bytes.length - Number(match[2]))
+          end = bytes.length - 1
+        }
+        if (
+          !match ||
+          (!match[1] && !match[2]) ||
+          !Number.isSafeInteger(start) ||
+          !Number.isSafeInteger(end) ||
+          start >= bytes.length ||
+          start > end ||
+          (!match[1] && Number(match[2]) === 0)
+        ) {
+          response
+            .writeHead(416, { 'Content-Range': `bytes */${bytes.length}` })
+            .end()
+          return
+        }
+        end = Math.min(end, bytes.length - 1)
+        response.writeHead(206, {
+          'Content-Type': types[extname(file)],
+          'Content-Range': `bytes ${start}-${end}/${bytes.length}`,
+          'Content-Length': end - start + 1,
+          'Cache-Control': 'no-cache',
+        })
+        response.end(bytes.subarray(start, end + 1))
+        return
+      }
       response.writeHead(200, {
         'Content-Type': types[extname(file)] || 'application/octet-stream',
+        'Content-Length': bytes.length,
         'Cache-Control': pathname.startsWith('/assets/')
           ? 'public, max-age=31536000, immutable'
           : 'no-cache',

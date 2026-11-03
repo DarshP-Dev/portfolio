@@ -19,7 +19,10 @@ export function includePublicAsset(
   resumeUrl?: string,
 ) {
   if (path.split('/').some((segment) => segment.startsWith('.'))) return false
-  if (path.startsWith('images/projects/'))
+  if (
+    path.startsWith('images/projects/') ||
+    path.startsWith('videos/projects/')
+  )
     return projectSlugs.includes(path.split('/')[2])
   if (path.startsWith('og/'))
     return (

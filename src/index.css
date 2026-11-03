@@ -119,8 +119,7 @@ p {
 .mono,
 .eyebrow,
 .section-number,
-.placeholder-caption,
-.pending-label {
+.placeholder-caption {
   font-family: var(--font-mono);
 }
 .quiet {
@@ -228,21 +227,6 @@ p {
 }
 .action-link:hover {
   background: #343437;
-}
-.pending-action {
-  padding: 12px 18px;
-  border: 1px solid var(--color-line);
-  border-radius: 999px;
-  display: inline-flex;
-  gap: 12px;
-  align-items: center;
-  font-size: 0.8rem;
-  min-height: 48px;
-}
-.pending-label {
-  color: var(--color-muted);
-  font-size: 0.6rem;
-  text-transform: uppercase;
 }
 .hero-work {
   margin-top: 48px;
@@ -443,6 +427,12 @@ p {
 .about-layout {
   margin-top: 45px;
   align-items: center;
+}
+.about-layout .prose > p + p {
+  margin-top: 20px;
+}
+.about-layout .prose > .text-link {
+  margin-top: 24px;
 }
 .lead-copy {
   font-size: clamp(1.25rem, 2vw, 1.65rem);

@@ -60,12 +60,10 @@ export function SiteFooter() {
             </svg>
           </button>
         </span>
-        {site.resume ? (
-          <a href={site.resume} download>
+        {site.resume && (
+          <a href={site.resume} download="Darsh_Patel_Resume.pdf">
             Resume <span aria-hidden="true">↓</span>
           </a>
-        ) : (
-          <span className="footer-pending">Resume pending</span>
         )}
       </nav>
       <span className="footer-copy-status" role="status" aria-live="polite">

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router'
 import type { Project } from '../../content/projects'
 import { MediaGallery } from './MediaGallery'
+import { BluffHouseScreenshots } from './BluffHouseScreenshots'
 import { ArchitectureMap } from './ArchitectureMap'
 import { BackToProjects, NextProjectLink } from './ProjectLinks'
 import './case-study.css'
@@ -89,9 +90,11 @@ export function CaseStudy({
         {project.status !== 'published' && (
           <p className="case-review-note">
             This is a development draft.{' '}
-            {project.sources?.length
-              ? 'Technical descriptions are grounded in the linked repository sources; personal contribution, media and outcomes still require the review noted below.'
-              : 'Project details and media are awaiting verification.'}
+            {project.id === 'personal-finance-tracker'
+              ? 'The media has been visually approved; personal contribution, outcomes and publication details still require the review noted below.'
+              : project.sources?.length
+                ? 'Technical descriptions are grounded in the linked repository sources; personal contribution, media and outcomes still require the review noted below.'
+                : 'Project details and media are awaiting verification.'}
           </p>
         )}
       </header>
@@ -372,6 +375,7 @@ export function CaseStudy({
           </details>
         )}
       </CaseSection>
+      {project.id === 'bluffhouse' && <BluffHouseScreenshots />}
       <section className="case-continue" aria-labelledby="continue-heading">
         <p className="eyebrow">Keep exploring</p>
         <h2 id="continue-heading">There’s more to build.</h2>
